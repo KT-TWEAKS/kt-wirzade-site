@@ -1,0 +1,57 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Instalar Playbooks · KT WIRZADE Docs"
+  description="Guia completo para baixar e aplicar playbooks .apbx no KT WIRZADE."
+  page="instalar"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Instalar playbooks</div>
+  <header class="page-header">
+    <h1>Instalar playbooks</h1>
+    <p class="lead">Do download do <code>.apbx</code> ao Windows transformado — o fluxo completo em quatro etapas.</p>
+  </header>
+
+  <h2>Antes de começar</h2>
+  <ul>
+    <li>Crie um <strong>ponto de restauração</strong> do Windows (por segurança extra).</li>
+    <li>Feche jogos e aplicativos pesados.</li>
+    <li>Se o playbook exigir internet, verifique sua conexão — o app avisa quantas etapas dependem de rede antes de começar.</li>
+  </ul>
+
+  <h2>Passo a passo</h2>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Baixe o playbook (.apbx)</h4><p>Pegue o arquivo na central KT TWEAKS ou em projetos da comunidade AME (AtlasOS, ReviOS etc.). Mantenha o hash SHA-256 se o autor publicar.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Audite o conteúdo (opcional, recomendado)</h4><p>Abra o <code>.apbx</code> no APBX Developer para ver registro, serviços, arquivos e downloads antes de aplicar. Veja a página <a href="/docs/apbx-developer">APBX Developer</a>.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Carregue no KT WIRZADE</h4><p>Arraste o arquivo para a janela do app ou use <b>Abrir playbook</b>. O app valida a integridade e mostra requisitos e avisos.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Aplique e reinicie</h4><p>Clique em <b>Aplicar</b> e acompanhe o log de cada ação. Ao final, reinicie o Windows para concluir.</p></div></div>
+  </div>
+
+  <div class="callout warn"><i class="fas fa-triangle-exclamation"></i><div><b>Aviso do antivírus é esperado.</b> Playbooks modificam registro e serviços — antivírus sinalizam como precaução. É um falso positivo conhecido: veja <a href="/docs/seguranca">Antivírus &amp; segurança</a>.</div></div>
+
+  <h2>Durante a aplicação</h2>
+  <table class="doc-table">
+    <thead><tr><th>Elemento</th><th>O que significa</th></tr></thead>
+    <tbody>
+      <tr><td>Log de ações</td><td>Cada mudança aparece em tempo real: chave de registro, serviço, arquivo etc.</td></tr>
+      <tr><td>Sessão de rollback</td><td>Criada automaticamente antes das mudanças — permite reverter depois</td></tr>
+      <tr><td>Aviso de rede</td><td>Se etapas precisam de internet, o app mostra o total antes de iniciar</td></tr>
+      <tr><td>Barra de progresso</td><td>Total de ações concluídas vs pendentes</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Depois de aplicar</h2>
+  <ul>
+    <li><b>Reinicie</b> quando o app pedir — algumas mudanças só valem após reboot.</li>
+    <li>O playbook fica no histórico e pode ser <b>revertido</b> pela sessão de rollback.</li>
+    <li>Com o cache offline ativo, reaplicar depois não exige novo download.</li>
+  </ul>
+
+  <div class="callout success"><i class="fas fa-circle-check"></i><div><b>Problemas?</b> Consulte o <a href="/docs/faq">FAQ &amp; suporte</a> ou abra uma issue no GitHub com o log anexado.</div></div>
+
+  <nav class="pager">
+    <a href="/docs"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Visão geral</span></a>
+    <a class="next" href="/docs/rollback"><span class="dir">Próximo</span><span class="name">Rollback <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>

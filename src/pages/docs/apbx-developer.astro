@@ -1,0 +1,54 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="APBX Developer · KT WIRZADE Docs"
+  description="Audite qualquer .apbx antes de aplicar: registro, serviços, arquivos, downloads, comandos e apps."
+  page="apbx"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / APBX Developer</div>
+  <header class="page-header">
+    <h1>APBX Developer</h1>
+    <p class="lead">Ferramenta separada que abre qualquer arquivo <code>.apbx</code> e mostra exatamente o que ele faz — antes de você aplicar.</p>
+  </header>
+
+  <h2>Por que usar</h2>
+  <p>Playbooks são pacotes com instruções poderosas: editar registro, parar serviços, substituir arquivos e executar comandos. Com o APBX Developer você <strong>não aplica às cegas</strong>: inspeciona tudo primeiro e decide com informação.</p>
+
+  <h2>O que ele mostra</h2>
+  <table class="doc-table">
+    <thead><tr><th>Categoria</th><th>Detalhes exibidos</th></tr></thead>
+    <tbody>
+      <tr><td>Registro</td><td>Chaves e valores criados/alterados/removidos</td></tr>
+      <tr><td>Serviços</td><td>Serviços afetados e a ação (desativar, alterar startup etc.)</td></tr>
+      <tr><td>Arquivos</td><td>Substituições, remoções e cópias planejadas</td></tr>
+      <tr><td>Downloads</td><td>URLs de onde o playbook baixa arquivos</td></tr>
+      <tr><td>Comandos</td><td>Scripts e comandos que serão executados</td></tr>
+      <tr><td>Apps</td><td>Pacotes/Appx removidos ou modificados</td></tr>
+      <tr><td>Metadados</td><td>Versão do playbook, compatibilidade e estrutura de páginas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Para criadores de playbooks</h2>
+  <ul>
+    <li>Valide a estrutura antes de distribuir seu <code>.apbx</code>.</li>
+    <li>O KT WIRZADE suporta <strong>até 7 opções por página</strong> (8 nos seletores com imagem) — mais que o padrão original (4).</li>
+    <li>Confira se ações de rollback estão bem definidas para seus usuários.</li>
+  </ul>
+
+  <div class="callout success"><i class="fas fa-shield-halved"></i><div><b>Transparência total:</b> auditoria prévia + hash SHA-256 publicados pelo autor = aplicação confiável.</div></div>
+
+  <h2>Fluxo recomendado</h2>
+  <ol>
+    <li>Baixe o <code>.apbx</code> e compare o SHA-256 com o publicado pelo autor.</li>
+    <li>Abra no APBX Developer e revise cada categoria.</li>
+    <li>Dúvidas? Pergunte ao autor da playbook ou na comunidade.</li>
+    <li>Só então aplique pelo KT WIRZADE.</li>
+  </ol>
+
+  <nav class="pager">
+    <a href="/docs/modo-iso"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Modo ISO</span></a>
+    <a class="next" href="/docs/seguranca"><span class="dir">Próximo</span><span class="name">Antivírus &amp; segurança <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>

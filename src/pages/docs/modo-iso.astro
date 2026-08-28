@@ -1,0 +1,46 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Modo ISO · KT WIRZADE Docs"
+  description="Modo ISO do KT WIRZADE: Windows 11, Windows 10 e ISO local, com bypass opcional de versão."
+  page="iso"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Modo ISO</div>
+  <header class="page-header">
+    <h1>Modo ISO</h1>
+    <p class="lead">Prepare uma imagem do Windows já otimizada: escolha entre download oficial (Win 11 ou Win 10) ou use sua própria ISO local.</p>
+  </header>
+
+  <h2>Fontes de imagem suportadas</h2>
+  <table class="doc-table">
+    <thead><tr><th>Fonte</th><th>Suporte</th><th>Observações</th></tr></thead>
+    <tbody>
+      <tr><td>Windows 11 (download)</td><td class="yes">Sim</td><td>Baixa a imagem oficial mais recente</td></tr>
+      <tr><td>Windows 10 (download)</td><td class="yes">Sim</td><td>Diferencial do KT — o AME original não oferece</td></tr>
+      <tr><td>ISO local</td><td class="yes">Sim</td><td>Qualquer arquivo <code>.iso</code> seu, de qualquer versão</td></tr>
+      <tr><td>Distros Linux</td><td class="no">Fora de escopo</td><td>Foco em playbooks Windows</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Como usar</h2>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Abra o modo ISO</h4><p>No menu lateral do app, escolha <b>Modo ISO</b>.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Escolha a fonte</h4><p>Win 11, Win 10 ou <b>ISO local</b>. No modo local, aponte para o seu <code>.iso</code>.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Selecione o playbook</h4><p>O playbook será aplicado à imagem, não ao sistema atual.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Gere e grave a mídia</h4><p>Ao final você obtém uma ISO pronta para pen drive/DVD via ferramenta de gravação.</p></div></div>
+  </div>
+
+  <h2>Versão não suportada? Bypass opcional</h2>
+  <p>Aplicar um playbook feito para outra versão do Windows normalmente é bloqueado. O KT WIRZADE oferece um <strong>bypass opcional</strong>: o app mostra quais builds são oficialmente suportadas e os riscos, mas permite continuar por sua conta.</p>
+
+  <div class="callout danger"><i class="fas fa-triangle-exclamation"></i><div><b>Use o bypass com consciência.</b> Ações podem falhar ou se comportar diferente fora das builds suportadas. Prefira um playbook compatível com sua versão.</div></div>
+
+  <div class="callout info"><i class="fas fa-circle-info"></i><div><b>Dica:</b> para testar sem risco, use o modo ISO numa máquina virtual antes de aplicar no sistema real.</div></div>
+
+  <nav class="pager">
+    <a href="/docs/rollback"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Rollback</span></a>
+    <a class="next" href="/docs/apbx-developer"><span class="dir">Próximo</span><span class="name">APBX Developer <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>

@@ -1,0 +1,78 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="FAQ &amp; Suporte · KT WIRZADE Docs"
+  description="Perguntas frequentes e canais de suporte do KT WIRZADE."
+  page="faq"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / FAQ &amp; suporte</div>
+  <header class="page-header">
+    <h1>FAQ &amp; suporte</h1>
+    <p class="lead">As dúvidas mais comuns — e onde conseguir ajuda quando a resposta não estiver aqui.</p>
+  </header>
+
+  <h2>Perguntas frequentes</h2>
+
+  <details class="faq-item" open>
+    <summary>O KT WIRZADE é gratuito?</summary>
+    <div class="faq-a">Sim, 100%. O download será publicado no GitHub quando o app for lançado.</div>
+  </details>
+  <details class="faq-item">
+    <summary>É vírus? Meu antivírus acusa.</summary>
+    <div class="faq-a">Não. É um falso positivo clássico: qualquer ferramenta que modifica registro/serviços/arquivos dispara heurísticas de antivírus. Veja <a href="/docs/seguranca">Antivírus &amp; segurança</a> para o contexto completo e como auditar antes de confiar.</div>
+  </details>
+  <details class="faq-item">
+    <summary>O rollback desfaz tudo?</summary>
+    <div class="faq-a">Reverte tweaks de registro, serviços (via backup .reg) e arquivos de playbook. <b>Não reverte:</b> apps removidos (debloat), limpeza de temporários e efeitos colaterais de comandos arbitrários. Detalhes na página de <a href="/docs/rollback">Rollback</a>.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Funciona no Windows 10?</summary>
+    <div class="faq-a">Sim. O app roda em Windows 10 e 11, o modo ISO baixa imagens dos dois, e ainda aceita qualquer ISO local sua.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Posso usar playbooks do AME Wizard original?</summary>
+    <div class="faq-a">Sim — o formato <code>.apbx</code> é o mesmo. Playbooks da comunidade (AtlasOS, ReviOS etc.) funcionam, com o bônus de recursos exclusivos como rollback real e aviso de rede.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Preciso de internet?</summary>
+    <div class="faq-a">Apenas para baixar playbooks/ISOs. Com o cache offline, reaplicar não exige conexão — e o app avisa antecipadamente quantas etapas dependem de rede.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Funciona junto com o AME Wizard instalado?</summary>
+    <div class="faq-a">São apps independentes. Evite aplicar o mesmo playbook pelos dois no mesmo sistema sem reverter antes, para não misturar estados.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Quando sai a versão final / onde baixo?</summary>
+    <div class="faq-a">O lançamento está próximo. O link aparecerá no site principal e no GitHub da organização assim que disponível.</div>
+  </details>
+
+  <h2>Como pedir suporte</h2>
+  <ol>
+    <li>Cheque esta FAQ e as páginas relacionadas ao seu problema.</li>
+    <li>Reproduza com informações: versão do Windows, playbook usado e hora aproximada.</li>
+    <li>Anexe o <strong>log da aplicação</strong> (o próprio app permite copiar/exportar).</li>
+    <li>Abra uma issue no GitHub da organização com esses detalhes.</li>
+  </ol>
+
+  <div class="card-grid">
+    <a class="doc-card" href="https://github.com/KT-TWEAKS" target="_blank" rel="noopener">
+      <i class="big fab fa-github"></i>
+      <h4>GitHub · KT TWEAKS</h4>
+      <p>Issues, releases e novidades do projeto.</p>
+      <span class="go">Abrir <i class="fas fa-arrow-up-right-from-square"></i></span>
+    </a>
+    <a class="doc-card" href="https://github.com/kelvenapk" target="_blank" rel="noopener">
+      <i class="big fas fa-user"></i>
+      <h4>kelvenapk</h4>
+      <p>Criador do KT WIRZADE e mantenedor da doc.</p>
+      <span class="go">Abrir <i class="fas fa-arrow-up-right-from-square"></i></span>
+    </a>
+  </div>
+
+  <nav class="pager">
+    <a href="/docs/seguranca"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Antivírus &amp; segurança</span></a>
+    <a class="next" href="/docs/changelog"><span class="dir">Próximo</span><span class="name">Changelog <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>

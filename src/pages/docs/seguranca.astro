@@ -1,0 +1,55 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Antivírus &amp; Segurança · KT WIRZADE Docs"
+  description="Por que antivírus acusam falso positivo e como usar o KT WIRZADE com segurança."
+  page="seguranca"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Antivírus &amp; segurança</div>
+  <header class="page-header">
+    <h1>Antivírus &amp; segurança</h1>
+    <p class="lead">Ferramentas que modificam o Windows profundamente são sinalizadas por antivírus — entenda o falso positivo e como se proteger de verdade.</p>
+  </header>
+
+  <h2>Por que o antivírus acusa?</h2>
+  <p>Playbooks alteram <strong>registro, serviços e arquivos do sistema</strong>. Para um antivírus, esse comportamento é idêntico ao de malware (persistência, modificação de configuração). Por isso o alerta é genérico: ele não sabe a intenção — só o comportamento.</p>
+  <div class="callout info"><i class="fas fa-circle-info"></i><div><b>Acontece com todos:</b> AtlasOS oficial, ReviOS oficial e qualquer projeto da família AME recebem os mesmos avisos.</div></div>
+
+  <h2>O que torna o processo seguro aqui</h2>
+  <table class="doc-table">
+    <thead><tr><th>Camada</th><th>Proteção</th></tr></thead>
+    <tbody>
+      <tr><td>Integridade</td><td>Hash SHA-256 verificado no playbook antes de aplicar</td></tr>
+      <tr><td>Auditoria</td><td><a href="/docs/apbx-developer">APBX Developer</a> revela todo o conteúdo do .apbx</td></tr>
+      <tr><td>Rastreabilidade</td><td>Log detalhado de cada ação executada</td></tr>
+      <tr><td>Reversão</td><td><a href="/docs/rollback">Rollback real</a> com backup prévio</td></tr>
+      <tr><td>Código</td><td>Sem ofuscação; ações declaradas em YAML legível dentro do pacote</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Checklist de uso seguro</h2>
+  <ol>
+    <li>Baixe playbooks <strong>somente de fontes confiáveis</strong> (autores conhecidos, repositórios oficiais).</li>
+    <li>Compare o <strong>SHA-256</strong> publicado pelo autor.</li>
+    <li>Audite no APBX Developer — especialmente <b>Downloads</b> e <b>Comandos</b>.</li>
+    <li>Crie um ponto de restauração do Windows.</li>
+    <li>Aplique, teste, e use rollback se algo ficar estranho.</li>
+  </ol>
+
+  <div class="callout danger"><i class="fas fa-triangle-exclamation"></i><div><b>Nunca desative o antivírus permanentemente.</b> Se precisar para aplicar, reative imediatamente após concluir e reiniciar.</div></div>
+
+  <h2>Se ainda assim quiser liberar o arquivo</h2>
+  <p>Prefira excluir apenas a pasta do playbook nas exceções do Defender (e não o Defender inteiro):</p>
+  <div class="code-block">
+    <div class="code-head"><span class="code-lang">PowerShell (Admin)</span><button class="copy-btn"><i class="far fa-copy"></i> Copiar</button></div>
+    <pre>Add-MpPreference -ExclusionPath "C:\Caminho\Para\Playbooks"</pre>
+  </div>
+  <div class="callout warn"><i class="fas fa-triangle-exclamation"></i><div><b>Faça isso só se confia 100% na origem.</b> Exclusões amplas reduzem sua proteção real contra ameaças genuínas.</div></div>
+
+  <nav class="pager">
+    <a href="/docs/apbx-developer"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">APBX Developer</span></a>
+    <a class="next" href="/docs/faq"><span class="dir">Próximo</span><span class="name">FAQ &amp; suporte <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>

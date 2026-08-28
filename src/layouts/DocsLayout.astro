@@ -1,0 +1,146 @@
+---
+import '../styles/docs.css';
+
+interface Props {
+  title: string;
+  description: string;
+  page: string;
+}
+
+const { title, description, page } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ef4444'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-size='14' font-weight='bold' fill='white' font-family='monospace'%3EKW%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body data-page={page}>
+
+<a class="site-banner" href="/"><i class="fas fa-arrow-left"></i> Voltar ao site principal <span>· KT WIRZADE — molde o Windows do seu jeito</span></a>
+
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-badge">KW</div>
+    <div><div class="brand-name">KT WIRZADE</div><div class="brand-sub">Documentação · v1.6.0</div></div>
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-title">Início</div>
+      <ul>
+        <li><a class="nav-link" data-nav="index" href="/docs"><i class="fas fa-home"></i> Visão geral</a></li>
+        <li><a class="nav-link" data-nav="instalar" href="/docs/instalar-playbooks"><i class="fas fa-rocket"></i> Instalar playbooks</a></li>
+        <li><a class="nav-link" data-nav="changelog" href="/docs/changelog"><i class="fas fa-list"></i> Changelog</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <div class="nav-title">Recursos</div>
+      <ul>
+        <li><a class="nav-link" data-nav="rollback" href="/docs/rollback"><i class="fas fa-rotate-left"></i> Rollback</a></li>
+        <li><a class="nav-link" data-nav="iso" href="/docs/modo-iso"><i class="fas fa-compact-disc"></i> Modo ISO</a></li>
+        <li><a class="nav-link" data-nav="apbx" href="/docs/apbx-developer"><i class="fas fa-file-code"></i> APBX Developer</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
+      <div class="nav-title">Segurança &amp; Ajuda</div>
+      <ul>
+        <li><a class="nav-link" data-nav="seguranca" href="/docs/seguranca"><i class="fas fa-shield-halved"></i> Antivírus &amp; segurança</a></li>
+        <li><a class="nav-link" data-nav="faq" href="/docs/faq"><i class="fas fa-circle-question"></i> FAQ &amp; suporte</a></li>
+      </ul>
+    </div>
+  </nav>
+</aside>
+
+<main class="content">
+<slot />
+  <footer class="doc-foot">
+    <span>KT WIRZADE · kelvenapk / KT TWEAKS — fork independente, não afiliado à Ameliorated.</span>
+    <span>Windows é marca da Microsoft.</span>
+  </footer>
+</main>
+</div>
+
+<button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+<script is:inline>
+/* KT WIRZADE Docs públicos — interações */
+(function () {
+  "use strict";
+
+  // Página ativa no sidebar (via <body data-page="...">)
+  var page = document.body.getAttribute("data-page") || "";
+  document.querySelectorAll(".nav-link").forEach(function (a) {
+    if (a.getAttribute("data-nav") === page) a.classList.add("active");
+  });
+
+  // Toggle sidebar mobile
+  var toggle = document.querySelector(".menu-toggle");
+  var sidebar = document.querySelector(".sidebar");
+  if (toggle && sidebar) {
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      sidebar.classList.toggle("open");
+    });
+    document.addEventListener("click", function (e) {
+      if (
+        sidebar.classList.contains("open") &&
+        !sidebar.contains(e.target) &&
+        !toggle.contains(e.target)
+      ) {
+        sidebar.classList.remove("open");
+      }
+    });
+  }
+
+  // Copiar blocos de código
+  document.querySelectorAll(".copy-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var block = btn.closest(".code-block");
+      var pre = block && block.querySelector("pre");
+      if (!pre) return;
+      var text = pre.textContent || "";
+      function done() {
+        var old = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Copiado';
+        setTimeout(function () { btn.innerHTML = old; }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () {});
+      } else {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.cssText = "position:fixed;left:-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  // Reveal suave nos headings
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.style.opacity = "1";
+          en.target.style.transform = "none";
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".content h2, .callout, .doc-card, .step-item").forEach(function (el) {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(14px)";
+      el.style.transition = "opacity .5s ease, transform .5s ease";
+      io.observe(el);
+    });
+  }
+})();
+</script>
+</body>
+</html>

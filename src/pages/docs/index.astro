@@ -1,0 +1,72 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Visão Geral · KT WIRZADE Docs"
+  description="Documentação oficial do KT WIRZADE: playbooks, rollback real, modo ISO e mais."
+  page="index"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Visão geral</div>
+  <header class="page-header">
+    <h1>KT WIRZADE</h1>
+    <p class="lead">Fork do AME Wizard com rollback real, interface em português, dashboard com cache offline e ferramentas exclusivas para criadores de playbooks. Esta documentação cobre instalação, uso diário e segurança.</p>
+  </header>
+
+  <h2>O que é o KT WIRZADE?</h2>
+  <p>O <strong>KT WIRZADE</strong> é um gerenciador de playbooks para Windows: você carrega um arquivo <code>.apbx</code>, confere o que será feito e aplica com privilégios de <strong>TrustedInstaller</strong>. Ele nasceu como fork do AME Wizard e mantém compatibilidade com a comunidade — adicionando recursos próprios.</p>
+
+  <div class="card-grid">
+    <span class="doc-card">
+      <i class="big fas fa-rotate-left"></i>
+      <h4>Rollback real</h4>
+      <p>Registro, serviços e arquivos guardam o estado anterior antes de cada mudança.</p>
+      <span class="go">Saiba mais <i class="fas fa-arrow-right"></i></span>
+    </span>
+    <span class="doc-card">
+      <i class="big fas fa-language"></i>
+      <h4>100% em PT-BR</h4>
+      <p>Interface, logs e diálogos traduzidos — com inglês opcional.</p>
+      <span class="go">Saiba mais <i class="fas fa-arrow-right"></i></span>
+    </span>
+    <span class="doc-card">
+      <i class="big fas fa-compact-disc"></i>
+      <h4>Modo ISO amplo</h4>
+      <p>Windows 11, Windows 10 ou qualquer ISO local sua.</p>
+      <span class="go">Saiba mais <i class="fas fa-arrow-right"></i></span>
+    </span>
+    <span class="doc-card">
+      <i class="big fas fa-database"></i>
+      <h4>Cache offline</h4>
+      <p>Reaplique playbooks sem internet, com verificação SHA-256.</p>
+      <span class="go">Saiba mais <i class="fas fa-arrow-right"></i></span>
+    </span>
+  </div>
+
+  <h2>Requisitos</h2>
+  <table class="doc-table">
+    <thead><tr><th>Item</th><th>Requisito</th></tr></thead>
+    <tbody>
+      <tr><td>Sistema</td><td>Windows 10 (build 19041+) ou Windows 10/11 — Home ou Pro</td></tr>
+      <tr><td>Arquitetura</td><td>x64</td></tr>
+      <tr><td>Permissões</td><td>Executar como administrador (o app eleva para TrustedInstaller quando necessário)</td></tr>
+      <tr><td>Internet</td><td>Opcional — apenas para baixar playbooks/ISOs; o cache offline cobre o resto</td></tr>
+      <tr><td>Antivírus</td><td>Pode acusar falso positivo — <a href="/docs/seguranca">entenda por quê</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Comece por aqui</h2>
+  <div class="steps">
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Baixe um playbook</h4><p>Arquivos <code>.apbx</code> da central KT TWEAKS ou da comunidade AME.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Audite antes de aplicar</h4><p>Use o <a href="/docs/apbx-developer">APBX Developer</a> para ver exatamente o que o playbook faz.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Aplique pelo app</h4><p>Arraste o <code>.apbx</code>, acompanhe o log e reinicie ao final.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Se precisar, reverta</h4><p>O <a href="/docs/rollback">rollback</a> desfaz registro, serviços e arquivos com um clique.</p></div></div>
+  </div>
+
+  <div class="callout info"><i class="fas fa-circle-info"></i><div><b>Novo no AME Wizard?</b> Comece por <a href="/docs/instalar-playbooks">Instalar playbooks</a> — o guia cobre tudo do download à aplicação.</div></div>
+
+  <nav class="pager">
+    <span></span>
+    <a class="next" href="/docs/instalar-playbooks"><span class="dir">Próximo</span><span class="name">Instalar playbooks <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>

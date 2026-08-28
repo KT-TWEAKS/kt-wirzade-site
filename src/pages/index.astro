@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Loader from '../components/Loader.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/home.css';
+---
+
+<BaseLayout
+  title="KT WIRZADE — Molde o Windows do seu jeito"
+  description="KT WIRZADE: wizard de otimizacao por playbooks .apbx com rollback real, IPC seguro, modo ISO e ferramentas para criadores. 100% PT-BR e gratuito."
+  ogDescription="Rollback real, IPC seguro, modo ISO/USB e DevKit para criadores. 100% PT-BR."
+>
+  <Fragment slot="meta">
+    <meta name="keywords" content="KT WIRZADE, KT TWEAKS, AME Wizard, playbook, apbx, debloat, Windows 10, Windows 11, otimizacao">
+    <meta name="author" content="KT TWEAKS">
+    <meta name="robots" content="index, follow">
+  </Fragment>
+  <Fragment slot="head">
+    <script type="importmap" is:inline>{ "imports": { "three": "https://unpkg.com/three@0.128.0/build/three.module.js" } }</script>
+  </Fragment>
+
+  <canvas id="bg-canvas"></canvas>
+  <div class="scan"></div>
+  <div class="noise"></div>
+
+  <Loader />
+  <Nav />
+
+  <section id="top" class="hero sec">
+    <div style="position:absolute;top:16%;left:10%;width:80px;height:80px;border:1px solid rgba(139,92,246,.16);border-radius:20px;background:rgba(139,92,246,.04);animation:floatRotate 7s ease-in-out infinite;pointer-events:none;z-index:1"></div>
+    <div style="position:absolute;top:24%;right:9%;width:60px;height:60px;border:1px solid rgba(34,211,238,.14);border-radius:50%;background:rgba(34,211,238,.03);animation:floatRotate 5s ease-in-out infinite .5s;pointer-events:none;z-index:1"></div>
+    <div style="position:absolute;bottom:18%;left:7%;width:50px;height:50px;border:1px solid rgba(196,181,253,.12);border-radius:14px;background:rgba(196,181,253,.03);animation:floatRotate 6s ease-in-out infinite 1s;pointer-events:none;z-index:1"></div>
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span> Lancamento em breve - Windows 10 &amp; 11 - 100% PT-BR</div>
+    <h1 class="hero-title"><span class="fill">KT</span><span class="stroke">WIRZADE</span></h1>
+    <p class="hero-subtitle">MOLDE O WINDOWS</p>
+    <p class="hero-desc">Versao customizada e melhorada do AME Wizard &mdash; <strong>rollback real</strong> com backup de cada alteracao, <strong>IPC seguro</strong> com TrustedInstaller, modo ISO Win 10 + 11 e <strong>ferramentas exclusivas</strong> para criadores de playbooks.</p>
+    <div class="hero-actions">
+        <a href="#recursos" class="btn-main"><i class="fas fa-bolt"></i> Explorar recursos</a>
+        <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" class="btn-ghost btn-cy"><i class="fas fa-box-open"></i> Playbooks prontos</a>
+        <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> Codigo fonte</a>
+    </div>
+    <div class="hero-stats">
+        <div class="hstat"><div class="hstat-n" data-count="12">0</div><div class="hstat-l">Melhorias exclusivas</div></div>
+        <div class="hstat"><div class="hstat-n">Win <span>10+</span></div><div class="hstat-l">Suporte nativo</div></div>
+        <div class="hstat"><div class="hstat-n" style="color:var(--gn)">Real</div><div class="hstat-l">Rollback c/ backup</div></div>
+        <div class="hstat"><div class="hstat-n" style="color:var(--cy)">PT-BR</div><div class="hstat-l">100% traduzido</div></div>
+    </div>
+    <div class="scroll-hint"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>SCROLL</span></div>
+  </section>
+
+  <section id="toolset" class="sec pad-sm"><div class="wrap">
+    <div class="toolset-card" data-reveal>
+        <div>
+            <span class="toolset-eyebrow">Conjunto de ferramentas poderoso</span>
+            <h2 class="toolset-title">Molde o Windows do seu jeito com YAML. Mudanças em que você pode confiar, profundas e repetíveis.</h2>
+            <ul class="toolset-list" id="toolset-list">
+                <li class="toolset-item active"><span class="ts-ic"><i class="fas fa-arrow-right"></i></span> Excluir arquivos com confiança</li>
+                <li class="toolset-item"><span class="ts-ic"><i class="fas fa-arrow-right"></i></span> Remover componentes com segurança</li>
+                <li class="toolset-item"><span class="ts-ic"><i class="fas fa-arrow-right"></i></span> Edições de registro poderosas</li>
+                <li class="toolset-item"><span class="ts-ic"><i class="fas fa-arrow-right"></i></span> Suporte completo a expressões regulares</li>
+                <li class="toolset-item"><span class="ts-ic"><i class="fas fa-arrow-right"></i></span> Instalar e implantar software</li>
+                <li class="toolset-item"><span class="ts-ic"><i class="fas fa-arrow-right"></i></span> Executar scripts personalizados</li>
+                <li class="toolset-item"><span class="ts-ic"><i class="fas fa-arrow-right"></i></span> Modificar a interface do usuário</li>
+            </ul>
+        </div>
+        <div class="toolset-img">
+            <img src="img/pc-kt.png" alt="KT WIRZADE — motor de otimização" loading="lazy">
+        </div>
+    </div>
+    <div class="mini-grid">
+        <div class="mini-card" data-reveal>
+            <span class="mini-label">Design moderno</span>
+            <div class="mini-ic"><i class="fa-solid fa-window-restore"></i></div>
+            <p>Um app que conversa perfeitamente com o <strong>Windows 11</strong>, com efeitos de transparência, animações suaves e suporte a <strong>temas claro e escuro</strong>.</p>
+        </div>
+        <div class="mini-card" data-reveal>
+            <span class="mini-label">Código aberto</span>
+            <div class="mini-ic"><i class="fa-solid fa-code"></i></div>
+            <p>Código-fonte disponível livremente fortalece a comunidade com <strong>confiança e transparência</strong>. Nosso software é publicado sob a <strong>licença MIT</strong>.</p>
+        </div>
+        <div class="mini-card" data-reveal>
+            <span class="mini-label">App nativo</span>
+            <div class="mini-ic"><i class="fa-solid fa-gauge-high"></i></div>
+            <p>Feito em <strong>C# e .NET</strong>: leve, rápido e eficiente. <strong>Sem frameworks pesados</strong> e sem gambiarras.</p>
+        </div>
+    </div>
+  </div></section>
+
+  <section id="recursos" class="sec pad"><div class="wrap">
+    <div data-reveal><div class="s-eyebrow">RECURSOS</div><h2 class="s-title">Tudo que o AME tem. <span class="hl">E o que ele nao tem.</span></h2><p class="s-body">O KT WIRZADE executa playbooks <code style="background:rgba(139,92,246,.12);padding:2px 8px;border-radius:6px;font-family:var(--fm);font-size:14px;color:var(--vi)">.apbx</code> com privilegio de TrustedInstaller &mdash; mas com seguranca refor &mdash; ada, rollback de verdade e experiencia 100% em portugues.</p></div>
+    <div class="feat-grid">
+        <div class="feat-card" data-reveal><div class="feat-icon fi-g"><i class="fas fa-clock-rotate-left"></i></div><h3>Rollback Real</h3><p>Valor anterior de registro salvo antes de cada mudanca, servicos com backup .reg e arquivos com copia de seguranca. Reverta qualquer playbook.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-v"><i class="fas fa-shield-halved"></i></div><h3>IPC Seguro</h3><p>Cadeia User &gt; Admin &gt; TrustedInstaller com segredo por sessao, ACL restrita e verificacao HMAC-SHA256 em cada mensagem.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-c"><i class="fas fa-language"></i></div><h3>100% PT-BR</h3><p>Interface completamente traduzida com alternancia PT-BR / EN em tempo real, direto na barra de titulo.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-a"><i class="fas fa-compact-disc"></i></div><h3>Modo ISO</h3><p>Download de ISOs Win 10/11 ou use uma ISO local. Injecao de playbooks direto na imagem com OOBE customizado.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-v"><i class="fas fa-cloud-arrow-down"></i></div><h3>Cache Offline</h3><p>Playbooks verificados com SHA-256 ficam em cache local. Indicador online/offline na barra de titulo.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-g"><i class="fas fa-layer-group"></i></div><h3>Multi-Playbook</h3><p>Sidebar com rolagem para quantos playbooks voce quiser, com verificacao remota de integridade.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-c"><i class="fas fa-triangle-exclamation"></i></div><h3>Aviso de Rede</h3><p>Escaneia o .apbx antes de aplicar e avisa quantas etapas precisam de internet. Sem surpresa no meio do processo.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-a"><i class="fas fa-code-branch"></i></div><h3>Bypass de Versao</h3><p>Playbook de outra build do Windows? Aviso claro com as builds suportadas e opcao de continuar por sua conta.</p></div>
+    </div>
+  </div></section>
+
+  <section id="ferramentas" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
+    <div data-reveal><div class="s-eyebrow">ECOSSISTEMA</div><h2 class="s-title">Ferramentas para <span class="hl2">criadores</span></h2><p class="s-body">O KT WIRZADE nao roda apenas playbooks &mdash; ele vem com um ecossistema completo para criar, auditar e distribuir os seus.</p></div>
+    <div class="tool-track">
+        <div class="tool-card" data-reveal="left">
+            <div class="tool-badge">Analisar</div>
+            <div class="tool-ic"><i class="fas fa-magnifying-glass-chart"></i></div>
+            <h3>APBX Developer</h3>
+            <div class="t-sub">KTWirzade.DevTool</div>
+            <p>Analise qualquer playbook <strong>sem aplicar nada</strong>. O raio-X completo do pacote antes de rodar na sua maquina.</p>
+            <ul class="tool-list">
+                <li>Classifica os 20 tipos de acao em 8 abas tematicas</li>
+                <li>Deteta riscos: downloads executaveis, comandos de shutdown, areas criticas</li>
+                <li>Conta etapas que precisam de internet antes de aplicar</li>
+                <li>Exporta relatorio completo em .txt para auditoria</li>
+            </ul>
+        </div>
+        <div class="tool-card" data-reveal="right">
+            <div class="tool-badge">Criar</div>
+            <div class="tool-ic"><i class="fas fa-code"></i></div>
+            <h3>APBX DevKit</h3>
+            <div class="t-sub">KTWirzade.DevKit</div>
+            <p>Uma IDE completa para playbooks: crie, edite, valide e empacote <strong>com o mesmo parser do motor</strong>. O que valida ai, roda aqui.</p>
+            <ul class="tool-list">
+                <li>Scaffold de projeto valido em segundos</li>
+                <li>Editor com templates das 20 acoes e indicador de linha</li>
+                <li>Validacao aponta erro arquivo + linha exata</li>
+                <li>Empacota .apbx criptografado num clique</li>
+            </ul>
+        </div>
+    </div>
+  </div></section>
+
+  <section id="como-usar" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
+    <div data-reveal><div class="s-eyebrow">GUIA</div><h2 class="s-title">Como <span class="hl">Usar</span>?</h2><p class="s-body">Quatro passos simples para transformar seu Windows.</p></div>
+    <div class="steps-track">
+        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--p);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">1</span><i class="fas fa-download"></i></div><h3>Baixe</h3><p>Obtenha o KT WIRZADE no lancamento e um playbook da sua escolha.</p></div>
+        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--p);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">2</span><i class="fas fa-file-import"></i></div><h3>Carregue</h3><p>Arraste o .apbx para a sidebar. Verificacao de integridade automatica.</p></div>
+        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--p);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">3</span><i class="fas fa-wand-magic-sparkles"></i></div><h3>Personalize</h3><p>Escolha as opcoes em checkboxes e radios. Tudo em portugues.</p></div>
+        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--cy);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">4</span><i class="fas fa-shield"></i></div><h3>Aplique</h3><p>Execute com seguranca &mdash; e reverta tudo com um clique se mudar de ideia.</p></div>
+    </div>
+    <div class="term-wrap">
+        <div data-reveal="left"><div class="s-eyebrow">POR DEBAIXO DOS PANOS</div><h2 class="s-title" style="font-size:clamp(34px,4.5vw,52px)">Playbooks em <span class="hl">YAML puro</span></h2><p class="s-body">Cada acao e declarativa, auditavel e reversivel. Nada de scripts opacos: voce le exatamente o que vai acontecer com o seu sistema.</p></div>
+        <div class="terminal" data-reveal="right">
+            <div class="term-bar"><span class="term-btn tb-r"></span><span class="term-btn tb-y"></span><span class="term-btn tb-g"></span><span class="term-title">meu-playbook.yml &mdash; KT WIRZADE</span></div>
+            <div class="term-body">
+<span class="tc-c"># Remove telemetria com rollback automatico</span><br>
+<span class="tc-o">-</span> <span class="tc-p">!registryValue</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tc-d">path</span>: <span class="tc-s">'HKLM\SOFTWARE\Policies\...\DataCollection'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tc-d">value</span>: <span class="tc-s">'AllowTelemetry'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tc-d">data</span>: <span class="tc-s">0</span>&nbsp;&nbsp;<span class="tc-c"># 0 = desativado</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tc-d">type</span>: <span class="tc-s">REG_DWORD</span><br>
+<span class="tc-o">-</span> <span class="tc-p">!service</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tc-d">name</span>: <span class="tc-s">'DiagTrack'</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="tc-d">operation</span>: <span class="tc-s">disable</span> <span class="tc-cursor"></span>
+            </div>
+        </div>
+    </div>
+  </div></section>
+
+  <section id="playbooks" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
+    <div data-reveal><div class="s-eyebrow">CATALOGO</div><h2 class="s-title"><span class="hl">16 playbooks</span> prontos para usar</h2><p class="s-body">Os playbooks originais da comunidade AME &mdash; AtlasOS, ReviOS, RapidOS, FSOS-XR9, Vain e mais &mdash; auditados pelo APBX Developer e verificados oficialmente. Downloads diretos, sem modificacoes.</p></div>
+    <div class="feat-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="feat-card" data-reveal><div class="feat-icon fi-v"><i class="fas fa-gamepad"></i></div><h3>Gaming</h3><p>Atlas, Vain, FSOS-XR9 e foco total em latencia e FPS.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-g"><i class="fas fa-user-shield"></i></div><h3>Privacy</h3><p>ReviOS, SapphireOS: telemetria zero por padrao.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-c"><i class="fas fa-feather"></i></div><h3>Leveza</h3><p>NOVA, Z LAG OS: para reviver PCs mais antigos.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-a"><i class="fas fa-sliders"></i></div><h3>Equilibrados</h3><p>RapidOS, RaxOS, SynergyOS: performance com usabilidade.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:52px" data-reveal>
+        <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" class="btn-main"><i class="fas fa-box-open"></i> Ver catalogo completo</a>
+    </div>
+  </div></section>
+
+  <section id="comparacao" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
+    <div data-reveal><div class="s-eyebrow">COMPARACAO</div><h2 class="s-title">KT WIRZADE <span class="hl2">vs</span> AME Wizard</h2></div>
+    <div class="cmp-wrap" data-reveal>
+        <div class="cmp-glow" id="cmp-glow"></div>
+        <table class="cmp">
+            <thead><tr><th style="width:44%">Recurso</th><th class="kt">KT WIRZADE</th><th>AME Wizard</th></tr></thead>
+            <tbody>
+                <tr><td>Interface 100% PT-BR</td><td class="yes"><i class="fas fa-circle-check"></i> Nativa</td><td class="no"><i class="fas fa-circle-xmark"></i> Ingles</td></tr>
+                <tr><td>Rollback com backup real</td><td class="yes"><i class="fas fa-circle-check"></i> Registro + arquivos + servicos</td><td class="part"><i class="fas fa-circle-half-stroke"></i> Parcial</td></tr>
+                <tr><td>IPC endurecido (HMAC + ACL)</td><td class="yes"><i class="fas fa-circle-check"></i> Sim</td><td class="part"><i class="fas fa-circle-half-stroke"></i> Basico</td></tr>
+                <tr><td>Cache offline de playbooks</td><td class="yes"><i class="fas fa-circle-check"></i> SHA-256</td><td class="no"><i class="fas fa-circle-xmark"></i> Nao</td></tr>
+                <tr><td>Analisador de playbooks</td><td class="yes"><i class="fas fa-circle-check"></i> APBX Developer</td><td class="no"><i class="fas fa-circle-xmark"></i> Nao</td></tr>
+                <tr><td>IDE para criar playbooks</td><td class="yes"><i class="fas fa-circle-check"></i> APBX DevKit</td><td class="no"><i class="fas fa-circle-xmark"></i> Nao</td></tr>
+                <tr><td>Modo ISO Win 10 + 11</td><td class="yes"><i class="fas fa-circle-check"></i> Sim</td><td class="part"><i class="fas fa-circle-half-stroke"></i> Win 11</td></tr>
+                <tr><td>Preco</td><td class="yes"><i class="fas fa-circle-check"></i> Gratis, codigo aberto</td><td class="yes"><i class="fas fa-circle-check"></i> Gratis</td></tr>
+            </tbody>
+        </table>
+    </div>
+  </div></section>
+
+  <section id="faq" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
+    <div data-reveal><div class="s-eyebrow">FAQ</div><h2 class="s-title">Perguntas <span class="hl">frequentes</span></h2></div>
+    <div class="faq-list">
+        <div class="faq-item" data-reveal><button class="faq-q">O KT WIRZADE e seguro? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Sim. Codigo 100% aberto e auditavel, sem executaveis ocultos. Cada alteracao e registrada com backup para rollback. O IPC entre processos usa criptografia HMAC-SHA256 e ACL restrita &mdash; ninguem pode injetar comandos no meio do caminho.</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">Quais versoes do Windows sao suportadas? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Windows 10 (build 19041+) e Windows 11, nas edicoes Home e Pro. Cada playbook declara as builds que suporta &mdash; e o wizard avisa antes de aplicar algo fora da sua versao.</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">E gratuito mesmo? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">100% gratuito e de codigo aberto, incluindo o APBX Developer e o APBX DevKit. Sem anuncios, sem telemetria, sem "versao pro".</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">Meu antivirus detectou o playbook. E virus? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Falso positivo esperado: qualquer ferramenta que modifique o Windows em profundidade e sinalizada &mdash; acontece com AtlasOS e ReviOS oficiais tambem. Todos os playbooks do catalogo oficial passam por auditoria automatizada.</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">Quando sera o lancamento? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Estamos na reta final: motor estavel, rollback funcional e ferramentas de criador prontas. Acompanhe o repositorio para ser o primeiro a saber.</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">Como crio meu proprio playbook? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Use o <code>APBX DevKit</code>: crie o projeto, escreva as acoes em YAML com templates prontos, valide com o mesmo parser do motor e empacote o .apbx num clique. A documentacao completa esta em <code>docs/Playbooks/</code> no repositorio.</div></div></div>
+    </div>
+  </div></section>
+
+  <section class="sec pad-sm"><div class="wrap">
+    <div class="cta-final" data-reveal="scale">
+        <h2>Pronto para <span class="hl2">moldar o Windows</span>?</h2>
+        <p>Lancamento chegando. Enquanto isso, explore os playbooks verificados e a documentacao completa do motor.</p>
+        <div class="hero-actions" style="margin-bottom:0;animation:none">
+            <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" class="btn-main"><i class="fas fa-box-open"></i> Ver playbooks</a>
+            <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </div>
+  </div></section>
+
+  <Footer />
+
+  <script is:inline>
+/* ---------- Loader ---------- */
+(function(){
+    var loader=document.getElementById("loader");
+    setTimeout(function(){loader.classList.add("gone");},2100);
+    setTimeout(function(){if(loader&&loader.parentNode)loader.remove();},3000);
+})();
+
+/* ---------- Cursor custom ---------- */
+(function(){
+    if(window.matchMedia("(max-width:900px)").matches)return;
+    var dot=document.createElement("div");dot.className="cursor-dot";
+    var ring=document.createElement("div");ring.className="cursor-ring";
+    document.body.appendChild(dot);document.body.appendChild(ring);
+    var mx=-100,my=-100,rx=-100,ry=-100;
+    document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+"px";dot.style.top=my+"px";});
+    (function anim(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(anim);})();
+    document.querySelectorAll("a,button,.faq-q").forEach(function(el){
+        el.addEventListener("mouseenter",function(){dot.classList.add("hover");ring.classList.add("hover");});
+        el.addEventListener("mouseleave",function(){dot.classList.remove("hover");ring.classList.remove("hover");});
+    });
+})();
+
+/* ---------- Nav ---------- */
+(function(){
+    var nav=document.getElementById("nav"),prog=document.getElementById("nav-progress");
+    function onScroll(){
+        var y=window.pageYOffset||document.documentElement.scrollTop;
+        nav.classList.toggle("solid",y>50);
+        var dh=document.documentElement.scrollHeight-window.innerHeight;
+        prog.style.width=(dh>0?(y/dh)*100:0)+"%";
+    }
+    window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+    var ham=document.getElementById("ham"),mob=document.getElementById("mob-nav");
+    ham.addEventListener("click",function(){mob.classList.toggle("open");});
+    mob.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){mob.classList.remove("open");});});
+
+    var links=document.querySelectorAll(".nav-a[href^='#']"),map=[];
+    links.forEach(function(l){try{var s=document.querySelector(l.getAttribute("href"));if(s)map.push({l:l,s:s});}catch(e){}});
+    function active(){
+        var y=window.pageYOffset,cur=null;
+        for(var i=map.length-1;i>=0;i--){if(map[i].s.getBoundingClientRect().top<=window.innerHeight*.4){cur=map[i];break;}}
+        map.forEach(function(m){m.l.classList.remove("active");});
+        if(cur)cur.l.classList.add("active");
+    }
+    window.addEventListener("scroll",active,{passive:true});active();
+})();
+
+/* ---------- Reveal + counters ---------- */
+(function(){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll("[data-reveal]").forEach(function(el){io.observe(el);});
+
+    var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+        if(!e.isIntersecting)return;cio.unobserve(e.target);
+        var el=e.target,target=parseInt(el.getAttribute("data-count"),10)||0,t0=null;
+        function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1200,1);el.textContent=Math.round(target*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step);}
+        requestAnimationFrame(step);
+    });},{threshold:.4});
+    document.querySelectorAll("[data-count]").forEach(function(el){cio.observe(el);});
+})();
+
+/* ---------- Toolset: destaque rotativo ---------- */
+(function(){
+    var items=document.querySelectorAll("#toolset-list .toolset-item");
+    if(!items.length)return;
+    var idx=0;
+    setInterval(function(){
+        items[idx].classList.remove("active");
+        idx=(idx+1)%items.length;
+        items[idx].classList.add("active");
+    },2200);
+})();
+
+/* ---------- FAQ ---------- */
+(function(){
+    var items=document.querySelectorAll(".faq-item");
+    items.forEach(function(item){
+        item.querySelector(".faq-q").addEventListener("click",function(){
+            var open=item.classList.contains("open");
+            items.forEach(function(o){o.classList.remove("open");});
+            if(!open)item.classList.add("open");
+        });
+    });
+})();
+
+/* ---------- Comparacao glow ---------- */
+(function(){
+    var w=document.querySelector(".cmp-wrap"),g=document.getElementById("cmp-glow");
+    if(!w||!g)return;
+    w.addEventListener("mousemove",function(e){var r=w.getBoundingClientRect();g.style.left=(e.clientX-r.left)+"px";g.style.top=(e.clientY-r.top)+"px";});
+})();
+
+/* ---------- Fundo interativo (Three.js) ---------- */
+import("three").then(function(THREE){
+    var canvas=document.getElementById("bg-canvas");
+    var renderer;
+    try{renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});}
+    catch(e){canvas.style.background="radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.1) 0%,transparent 60%)";return;}
+    renderer.setSize(window.innerWidth,window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+    var scene=new THREE.Scene();
+    var camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,.1,1000);
+    camera.position.z=30;
+
+    /* Esfera de particulas roxo/ciano */
+    var cnt=1900,pos=new Float32Array(cnt*3),col=new Float32Array(cnt*3);
+    var c1=new THREE.Color("#8b5cf6"),c2=new THREE.Color("#22d3ee"),c3=new THREE.Color("#a78bfa");
+    for(var i=0;i<cnt*3;i+=3){
+        var r=22+Math.random()*32,t=Math.random()*Math.PI*2,p=Math.acos(Math.random()*2-1);
+        pos[i]=Math.sin(p)*Math.cos(t)*r;pos[i+1]=Math.sin(p)*Math.sin(t)*r;pos[i+2]=Math.cos(p)*r;
+        var m=c1.clone().lerp(c2,Math.random());if(Math.random()>.6)m.lerp(c3,Math.random());
+        col[i]=m.r;col[i+1]=m.g;col[i+2]=m.b;
+    }
+    var pGeo=new THREE.BufferGeometry();
+    pGeo.setAttribute("position",new THREE.BufferAttribute(pos,3));
+    pGeo.setAttribute("color",new THREE.BufferAttribute(col,3));
+    var pMesh=new THREE.Points(pGeo,new THREE.PointsMaterial({size:.16,vertexColors:true,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false}));
+    scene.add(pMesh);
+
+    /* Estrelas distantes */
+    var sCnt=900,sPos=new Float32Array(sCnt*3);
+    for(var j=0;j<sCnt*3;j+=3){sPos[j]=(Math.random()-.5)*160;sPos[j+1]=(Math.random()-.5)*160;sPos[j+2]=(Math.random()-.5)*160;}
+    var sGeo=new THREE.BufferGeometry();
+    sGeo.setAttribute("position",new THREE.BufferAttribute(sPos,3));
+    var sMesh=new THREE.Points(sGeo,new THREE.PointsMaterial({size:.08,color:0x6d5a9e,transparent:true,opacity:.55}));
+    scene.add(sMesh);
+
+    /* Interacao com mouse: a esfera gira e a camera segue */
+    var mouseX=0,mouseY=0,tX=0,tY=0;
+    document.addEventListener("mousemove",function(e){
+        mouseX=(e.clientX/window.innerWidth-.5)*2;
+        mouseY=(e.clientY/window.innerHeight-.5)*2;
+    });
+    window.addEventListener("resize",function(){
+        camera.aspect=window.innerWidth/window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth,window.innerHeight);
+    });
+
+    var clock=new THREE.Clock();
+    (function animate(){
+        requestAnimationFrame(animate);
+        var el=clock.getElapsedTime();
+        pMesh.rotation.y=el*.05;
+        pMesh.rotation.x=Math.sin(el*.1)*.08;
+        sMesh.rotation.y=-el*.012;
+        tX+=(mouseX-tX)*.04;tY+=(mouseY-tY)*.04;
+        camera.position.x=tX*4;camera.position.y=-tY*3;
+        camera.lookAt(0,0,0);
+        renderer.render(scene,camera);
+    })();
+}).catch(function(){
+    var c=document.getElementById("bg-canvas");
+    c.style.background="radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(34,211,238,.06) 0%,transparent 55%)";
+});
+  </script>
+</BaseLayout>
