@@ -14,12 +14,13 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   </header>
 
   <div class="ver">
-    <div class="ver-head"><span class="ver-tag">v1.6.0</span><span class="pill latest">Atual</span></div>
+    <div class="ver-head"><span class="ver-tag">v1.0.0</span><span class="pill latest">Atual — 29/08/2026</span></div>
     <ul>
-      <li><strong>Motor corrigido em ~25 pontos:</strong> rollback agora sobrevive à troca de processo (registro, serviços e arquivos), chaves de registro deletadas voltam completas via exportação/ importação <code>.reg</code>, bugs de lógica eliminados.</li>
-      <li><strong>Segurança reforçada na troca de processos (IPC):</strong> segredo aleatório por execução, permissão restrita ao dono da sessão, HMAC nas mensagens de verificação e checagem de nível de integridade do processo que se apresenta.</li>
-      <li><strong>APBX Developer refeito:</strong> painel de riscos (downloads de executáveis, comandos que reiniciam a máquina), contador de etapas com rede, exportação de relatório, filtro de busca e UI no estilo do app principal.</li>
-      <li><strong>Multi-instância:</strong> abrir o app duas vezes agora é detectado corretamente.</li>
+      <li><strong>Lançamento oficial:</strong> primeiro release público em <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" rel="noopener">github.com/KT-TWEAKS/KT-WIRZADE</a> — app único GUI (<code>KT WIRZADE.exe</code>) com ícone novo (estrela roxa) e update via GitHub Releases.</li>
+      <li><strong>Motor 100% revisado:</strong> engine de playbooks `.apbx` independente de build do Windows, parsing YAML 21 tipos, rollback real (registro `.reg`, serviços, arquivos) e IPC com HMAC.</li>
+      <li><strong>Segurança:</strong> sanitização de `Cmd`/`PowerShell`, travamento de `..` em paths, denylist mínima de serviços críticos, regex com timeout, verificação de `.apbx` íntegro.</li>
+      <li><strong>GUI único:</strong> single-file `net4.8-windows` com `netstandard.dll` embarcado — roda sozinho em qualquer pasta, sem precisar extrair DLLs lado a lado.</li>
+      <li><strong>APBX Developer e DevKit</strong> serão liberados em repositórios separados — não inclusos neste pacote.</li>
     </ul>
   </div>
 

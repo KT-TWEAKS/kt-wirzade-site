@@ -8,8 +8,8 @@ import '../styles/home.css';
 
 <BaseLayout
   title="KT WIRZADE — Molde o Windows do seu jeito"
-  description="KT WIRZADE: wizard de otimizacao por playbooks .apbx com rollback real, IPC seguro, modo ISO e ferramentas para criadores. 100% PT-BR e gratuito."
-  ogDescription="Rollback real, IPC seguro, modo ISO/USB e DevKit para criadores. 100% PT-BR."
+  description="KT WIRZADE: wizard de otimizacao por playbooks .apbx com rollback real, IPC seguro e modo ISO. 100% PT-BR e gratuito."
+  ogDescription="Rollback real, IPC seguro, modo ISO/USB. 100% PT-BR e de codigo aberto."
 >
   <Fragment slot="meta">
     <meta name="keywords" content="KT WIRZADE, KT TWEAKS, AME Wizard, playbook, apbx, debloat, Windows 10, Windows 11, otimizacao">
@@ -31,23 +31,100 @@ import '../styles/home.css';
     <div style="position:absolute;top:16%;left:10%;width:80px;height:80px;border:1px solid rgba(139,92,246,.16);border-radius:20px;background:rgba(139,92,246,.04);animation:floatRotate 7s ease-in-out infinite;pointer-events:none;z-index:1"></div>
     <div style="position:absolute;top:24%;right:9%;width:60px;height:60px;border:1px solid rgba(34,211,238,.14);border-radius:50%;background:rgba(34,211,238,.03);animation:floatRotate 5s ease-in-out infinite .5s;pointer-events:none;z-index:1"></div>
     <div style="position:absolute;bottom:18%;left:7%;width:50px;height:50px;border:1px solid rgba(196,181,253,.12);border-radius:14px;background:rgba(196,181,253,.03);animation:floatRotate 6s ease-in-out infinite 1s;pointer-events:none;z-index:1"></div>
-    <div class="hero-eyebrow"><span class="eyebrow-dot"></span> Lancamento em breve - Windows 10 &amp; 11 - 100% PT-BR</div>
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span> Disponivel agora - Windows 10 &amp; 11 - 100% PT-BR</div>
     <h1 class="hero-title"><span class="fill">KT</span><span class="stroke">WIRZADE</span></h1>
     <p class="hero-subtitle">MOLDE O WINDOWS</p>
-    <p class="hero-desc">Versao customizada e melhorada do AME Wizard &mdash; <strong>rollback real</strong> com backup de cada alteracao, <strong>IPC seguro</strong> com TrustedInstaller, modo ISO Win 10 + 11 e <strong>ferramentas exclusivas</strong> para criadores de playbooks.</p>
+    <p class="hero-desc">Versao customizada e melhorada do AME Wizard &mdash; <strong>rollback real</strong> com backup de cada alteracao, <strong>IPC seguro</strong> com TrustedInstaller e modo ISO Win 10 + 11.</p>
     <div class="hero-actions">
-        <a href="#recursos" class="btn-main"><i class="fas fa-bolt"></i> Explorar recursos</a>
-        <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" class="btn-ghost btn-cy"><i class="fas fa-box-open"></i> Playbooks prontos</a>
+        <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/latest" target="_blank" class="btn-main"><i class="fas fa-download"></i> Baixar v1.0.0</a>
+        <a href="https://kt-wirzade-docs.vercel.app" target="_blank" class="btn-ghost btn-cy"><i class="fas fa-book"></i> Documentacao</a>
         <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> Codigo fonte</a>
     </div>
     <div class="hero-stats">
-        <div class="hstat"><div class="hstat-n" data-count="12">0</div><div class="hstat-l">Melhorias exclusivas</div></div>
+        <div class="hstat"><div class="hstat-n" data-count="16">0</div><div class="hstat-l">Playbooks verificados</div></div>
         <div class="hstat"><div class="hstat-n">Win <span>10+</span></div><div class="hstat-l">Suporte nativo</div></div>
         <div class="hstat"><div class="hstat-n" style="color:var(--gn)">Real</div><div class="hstat-l">Rollback c/ backup</div></div>
         <div class="hstat"><div class="hstat-n" style="color:var(--cy)">PT-BR</div><div class="hstat-l">100% traduzido</div></div>
     </div>
     <div class="scroll-hint"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>SCROLL</span></div>
   </section>
+
+  <section id="preview" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
+    <div data-reveal style="text-align:center"><div class="s-eyebrow" style="justify-content:center">PREVIEW</div><h2 class="s-title">Veja o <span class="hl">KT WIRZADE</span> em acao</h2><p class="s-body" style="margin:20px auto 0">Interface moderna, sidebar com playbooks, verificacao de integridade e suporte a dezenas de playbooks da comunidade.</p></div>
+    <div class="preview-showcase" data-reveal="scale">
+      <div class="preview-glow"></div>
+      <div class="preview-window">
+        <div class="preview-titlebar">
+          <div class="preview-dots"><span></span><span></span><span></span></div>
+          <span class="preview-titlebar-text">KT WIRZADE</span>
+          <div class="preview-titlebar-right">
+            <span class="preview-badge-online"><span class="preview-badge-dot"></span> Online</span>
+            <span class="preview-badge-lang">PT-BR</span>
+          </div>
+        </div>
+        <div class="preview-body">
+          <div class="preview-sidebar">
+            <div class="preview-pb active">
+              <div class="preview-pb-icon"><i class="fas fa-cube"></i></div>
+              <div class="preview-pb-info">
+                <span class="preview-pb-name">AtlasOS</span>
+                <span class="preview-pb-author">Atlas</span>
+                <span class="preview-pb-desc">AtlasOS Playbook for Windows 11</span>
+              </div>
+            </div>
+            <div class="preview-pb">
+              <div class="preview-pb-icon"><i class="fab fa-windows"></i></div>
+              <div class="preview-pb-info">
+                <span class="preview-pb-name">ReviOS</span>
+                <span class="preview-pb-author">Revi</span>
+                <span class="preview-pb-desc">Privacy-focused Windows 11</span>
+              </div>
+            </div>
+            <div class="preview-pb">
+              <div class="preview-pb-icon"><i class="fas fa-gamepad"></i></div>
+              <div class="preview-pb-info">
+                <span class="preview-pb-name">Vain</span>
+                <span class="preview-pb-author">KT TWEAKS</span>
+                <span class="preview-pb-desc">Performance & Gaming</span>
+              </div>
+            </div>
+            <div class="preview-drop">
+              <i class="fas fa-cloud-arrow-up"></i>
+              <span>Arraste um <code>.apbx</code> aqui</span>
+            </div>
+          </div>
+          <div class="preview-main">
+            <h3 class="preview-main-title">Atlas v0.5.0</h3>
+            <div class="preview-warning">
+              <i class="fas fa-triangle-exclamation"></i>
+              <span>Read the Atlas documentation first. <strong>https://docs.atlasos.net/</strong></span>
+            </div>
+            <p class="preview-main-desc">Atlas makes your computer snappier and more private with lots of usability improvements.</p>
+            <div class="preview-action">
+              <div class="preview-action-info">
+                <i class="fas fa-shield-halved"></i>
+                <div>
+                  <strong>Desativar seguranca</strong>
+                  <span>Permitir acesso ao sistema de arquivos do KT WIRZADE</span>
+                </div>
+              </div>
+              <button class="preview-action-btn">Executar acao</button>
+            </div>
+            <div class="preview-footer-bar">
+              <span>Clique no botao <strong>Next</strong> abaixo para continuar.</span>
+              <span class="preview-mod">modificado por kelvenapk</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-navbar">
+          <span><i class="fas fa-house"></i> Inicio</span>
+          <span><i class="fas fa-circle-info"></i> Sobre</span>
+          <span><i class="fas fa-clock-rotate-left"></i> Rollback</span>
+          <span class="preview-nav-right">Back &nbsp; Next &nbsp; Cancel</span>
+        </div>
+      </div>
+    </div>
+  </div></section>
 
   <section id="toolset" class="sec pad-sm"><div class="wrap">
     <div class="toolset-card" data-reveal>
@@ -101,38 +178,6 @@ import '../styles/home.css';
     </div>
   </div></section>
 
-  <section id="ferramentas" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
-    <div data-reveal><div class="s-eyebrow">ECOSSISTEMA</div><h2 class="s-title">Ferramentas para <span class="hl2">criadores</span></h2><p class="s-body">O KT WIRZADE nao roda apenas playbooks &mdash; ele vem com um ecossistema completo para criar, auditar e distribuir os seus.</p></div>
-    <div class="tool-track">
-        <div class="tool-card" data-reveal="left">
-            <div class="tool-badge">Analisar</div>
-            <div class="tool-ic"><i class="fas fa-magnifying-glass-chart"></i></div>
-            <h3>APBX Developer</h3>
-            <div class="t-sub">KTWirzade.DevTool</div>
-            <p>Analise qualquer playbook <strong>sem aplicar nada</strong>. O raio-X completo do pacote antes de rodar na sua maquina.</p>
-            <ul class="tool-list">
-                <li>Classifica os 20 tipos de acao em 8 abas tematicas</li>
-                <li>Deteta riscos: downloads executaveis, comandos de shutdown, areas criticas</li>
-                <li>Conta etapas que precisam de internet antes de aplicar</li>
-                <li>Exporta relatorio completo em .txt para auditoria</li>
-            </ul>
-        </div>
-        <div class="tool-card" data-reveal="right">
-            <div class="tool-badge">Criar</div>
-            <div class="tool-ic"><i class="fas fa-code"></i></div>
-            <h3>APBX DevKit</h3>
-            <div class="t-sub">KTWirzade.DevKit</div>
-            <p>Uma IDE completa para playbooks: crie, edite, valide e empacote <strong>com o mesmo parser do motor</strong>. O que valida ai, roda aqui.</p>
-            <ul class="tool-list">
-                <li>Scaffold de projeto valido em segundos</li>
-                <li>Editor com templates das 20 acoes e indicador de linha</li>
-                <li>Validacao aponta erro arquivo + linha exata</li>
-                <li>Empacota .apbx criptografado num clique</li>
-            </ul>
-        </div>
-    </div>
-  </div></section>
-
   <section id="como-usar" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
     <div data-reveal><div class="s-eyebrow">GUIA</div><h2 class="s-title">Como <span class="hl">Usar</span>?</h2><p class="s-body">Quatro passos simples para transformar seu Windows.</p></div>
     <div class="steps-track">
@@ -161,12 +206,24 @@ import '../styles/home.css';
   </div></section>
 
   <section id="playbooks" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
-    <div data-reveal><div class="s-eyebrow">CATALOGO</div><h2 class="s-title"><span class="hl">16 playbooks</span> prontos para usar</h2><p class="s-body">Os playbooks originais da comunidade AME &mdash; AtlasOS, ReviOS, RapidOS, FSOS-XR9, Vain e mais &mdash; auditados pelo APBX Developer e verificados oficialmente. Downloads diretos, sem modificacoes.</p></div>
-    <div class="feat-grid" style="grid-template-columns:repeat(4,1fr)">
-        <div class="feat-card" data-reveal><div class="feat-icon fi-v"><i class="fas fa-gamepad"></i></div><h3>Gaming</h3><p>Atlas, Vain, FSOS-XR9 e foco total em latencia e FPS.</p></div>
-        <div class="feat-card" data-reveal><div class="feat-icon fi-g"><i class="fas fa-user-shield"></i></div><h3>Privacy</h3><p>ReviOS, SapphireOS: telemetria zero por padrao.</p></div>
-        <div class="feat-card" data-reveal><div class="feat-icon fi-c"><i class="fas fa-feather"></i></div><h3>Leveza</h3><p>NOVA, Z LAG OS: para reviver PCs mais antigos.</p></div>
-        <div class="feat-card" data-reveal><div class="feat-icon fi-a"><i class="fas fa-sliders"></i></div><h3>Equilibrados</h3><p>RapidOS, RaxOS, SynergyOS: performance com usabilidade.</p></div>
+    <div data-reveal><div class="s-eyebrow">CATALOGO</div><h2 class="s-title"><span class="hl">16 playbooks</span> prontos para usar</h2>    <p class="s-body">Os playbooks originais da comunidade AME &mdash; todos verificados oficialmente. Downloads diretos, sem modificacoes.</p></div>
+    <div class="playbook-grid" data-reveal>
+        <div class="playbook-chip"><span class="pcb pcb-perf"></span> AtlasOS <small>v0.5.0</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-game"></span> AtmosphereOS <small>v0.2.0</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-light"></span> Atom <small>v0.0.7</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-game"></span> Eternity <small>v1.4</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-perf"></span> FSOS-XR10 <small>v10.0</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-game"></span> NOVA <small>v0.5.0</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-game"></span> NovaOS <small>v6.2</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-ok"></span> PeakOS <small>v1.0.2</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-priv"></span> RapidOS <small>v1.3</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-game"></span> RaxOS <small>v001</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-priv"></span> ReviOS <small>26.04</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-perf"></span> SapphireOS <small>v0.0.3</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-bal"></span> SynergyOS <small>v1.5.0</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-game"></span> XOS <small>v0.574</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-game"></span> Z-LAG OS <small>v5.16</small></div>
+        <div class="playbook-chip"><span class="pcb pcb-perf"></span> Vain <small>v14</small></div>
     </div>
     <div style="text-align:center;margin-top:52px" data-reveal>
         <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" class="btn-main"><i class="fas fa-box-open"></i> Ver catalogo completo</a>
@@ -184,9 +241,8 @@ import '../styles/home.css';
                 <tr><td>Rollback com backup real</td><td class="yes"><i class="fas fa-circle-check"></i> Registro + arquivos + servicos</td><td class="part"><i class="fas fa-circle-half-stroke"></i> Parcial</td></tr>
                 <tr><td>IPC endurecido (HMAC + ACL)</td><td class="yes"><i class="fas fa-circle-check"></i> Sim</td><td class="part"><i class="fas fa-circle-half-stroke"></i> Basico</td></tr>
                 <tr><td>Cache offline de playbooks</td><td class="yes"><i class="fas fa-circle-check"></i> SHA-256</td><td class="no"><i class="fas fa-circle-xmark"></i> Nao</td></tr>
-                <tr><td>Analisador de playbooks</td><td class="yes"><i class="fas fa-circle-check"></i> APBX Developer</td><td class="no"><i class="fas fa-circle-xmark"></i> Nao</td></tr>
-                <tr><td>IDE para criar playbooks</td><td class="yes"><i class="fas fa-circle-check"></i> APBX DevKit</td><td class="no"><i class="fas fa-circle-xmark"></i> Nao</td></tr>
                 <tr><td>Modo ISO Win 10 + 11</td><td class="yes"><i class="fas fa-circle-check"></i> Sim</td><td class="part"><i class="fas fa-circle-half-stroke"></i> Win 11</td></tr>
+                <tr><td>Auto-Update</td><td class="yes"><i class="fas fa-circle-check"></i> GitHub Releases</td><td class="no"><i class="fas fa-circle-xmark"></i> Nao</td></tr>
                 <tr><td>Preco</td><td class="yes"><i class="fas fa-circle-check"></i> Gratis, codigo aberto</td><td class="yes"><i class="fas fa-circle-check"></i> Gratis</td></tr>
             </tbody>
         </table>
@@ -198,20 +254,19 @@ import '../styles/home.css';
     <div class="faq-list">
         <div class="faq-item" data-reveal><button class="faq-q">O KT WIRZADE e seguro? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Sim. Codigo 100% aberto e auditavel, sem executaveis ocultos. Cada alteracao e registrada com backup para rollback. O IPC entre processos usa criptografia HMAC-SHA256 e ACL restrita &mdash; ninguem pode injetar comandos no meio do caminho.</div></div></div>
         <div class="faq-item" data-reveal><button class="faq-q">Quais versoes do Windows sao suportadas? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Windows 10 (build 19041+) e Windows 11, nas edicoes Home e Pro. Cada playbook declara as builds que suporta &mdash; e o wizard avisa antes de aplicar algo fora da sua versao.</div></div></div>
-        <div class="faq-item" data-reveal><button class="faq-q">E gratuito mesmo? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">100% gratuito e de codigo aberto, incluindo o APBX Developer e o APBX DevKit. Sem anuncios, sem telemetria, sem "versao pro".</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">E gratuito mesmo? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">100% gratuito e de codigo aberto. Sem anuncios, sem telemetria, sem "versao pro".</div></div></div>
         <div class="faq-item" data-reveal><button class="faq-q">Meu antivirus detectou o playbook. E virus? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Falso positivo esperado: qualquer ferramenta que modifique o Windows em profundidade e sinalizada &mdash; acontece com AtlasOS e ReviOS oficiais tambem. Todos os playbooks do catalogo oficial passam por auditoria automatizada.</div></div></div>
-        <div class="faq-item" data-reveal><button class="faq-q">Quando sera o lancamento? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Estamos na reta final: motor estavel, rollback funcional e ferramentas de criador prontas. Acompanhe o repositorio para ser o primeiro a saber.</div></div></div>
-        <div class="faq-item" data-reveal><button class="faq-q">Como crio meu proprio playbook? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Use o <code>APBX DevKit</code>: crie o projeto, escreva as acoes em YAML com templates prontos, valide com o mesmo parser do motor e empacote o .apbx num clique. A documentacao completa esta em <code>docs/Playbooks/</code> no repositorio.</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">Quando sera o lancamento? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Ja disponivel! Baixe na pagina de releases do GitHub e comece a usar agora.</div></div></div>
     </div>
   </div></section>
 
   <section class="sec pad-sm"><div class="wrap">
     <div class="cta-final" data-reveal="scale">
         <h2>Pronto para <span class="hl2">moldar o Windows</span>?</h2>
-        <p>Lancamento chegando. Enquanto isso, explore os playbooks verificados e a documentacao completa do motor.</p>
+        <p>Disponivel agora. Baixe, extraia e execute — e reverta qualquer coisa com um clique.</p>
         <div class="hero-actions" style="margin-bottom:0;animation:none">
-            <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" class="btn-main"><i class="fas fa-box-open"></i> Ver playbooks</a>
-            <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/latest" target="_blank" class="btn-main"><i class="fas fa-download"></i> Baixar v1.0.0</a>
+            <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> Codigo fonte</a>
         </div>
     </div>
   </div></section>

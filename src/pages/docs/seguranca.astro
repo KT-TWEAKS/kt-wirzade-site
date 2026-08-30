@@ -22,7 +22,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
     <thead><tr><th>Camada</th><th>Proteção</th></tr></thead>
     <tbody>
       <tr><td>Integridade</td><td>Hash SHA-256 verificado no playbook antes de aplicar</td></tr>
-      <tr><td>Auditoria</td><td><a href="/docs/apbx-developer">APBX Developer</a> revela todo o conteúdo do .apbx</td></tr>
+      <tr><td>Auditoria</td><td>APBX Developer (em breve) revelará todo o conteúdo do .apbx</td></tr>
       <tr><td>Rastreabilidade</td><td>Log detalhado de cada ação executada</td></tr>
       <tr><td>Reversão</td><td><a href="/docs/rollback">Rollback real</a> com backup prévio</td></tr>
       <tr><td>Código</td><td>Sem ofuscação; ações declaradas em YAML legível dentro do pacote</td></tr>
@@ -33,7 +33,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   <ol>
     <li>Baixe playbooks <strong>somente de fontes confiáveis</strong> (autores conhecidos, repositórios oficiais).</li>
     <li>Compare o <strong>SHA-256</strong> publicado pelo autor.</li>
-    <li>Audite no APBX Developer — especialmente <b>Downloads</b> e <b>Comandos</b>.</li>
+    <li>Revise o conteúdo do playbook — especialmente <b>Downloads</b> e <b>Comandos</b>.</li>
     <li>Crie um ponto de restauração do Windows.</li>
     <li>Aplique, teste, e use rollback se algo ficar estranho.</li>
   </ol>
@@ -49,7 +49,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   <div class="callout warn"><i class="fas fa-triangle-exclamation"></i><div><b>Faça isso só se confia 100% na origem.</b> Exclusões amplas reduzem sua proteção real contra ameaças genuínas.</div></div>
 
   <nav class="pager">
-    <a href="/docs/apbx-developer"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">APBX Developer</span></a>
+    <a href="/docs/modo-iso"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Modo ISO</span></a>
     <a class="next" href="/docs/faq"><span class="dir">Próximo</span><span class="name">FAQ &amp; suporte <i class="fas fa-arrow-right"></i></span></a>
   </nav>
 </DocsLayout>
