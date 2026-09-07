@@ -27,7 +27,7 @@
 
 ---
 
-Construído com [Astro 5](https://astro.build) (saída estática).
+Construído com [Astro 5](https://astro.build) (saída estática). Versão pública atual: **1.0.1**.
 
 **Produção:** https://kt-wirzade-site.vercel.app
 
