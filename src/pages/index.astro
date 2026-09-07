@@ -36,8 +36,8 @@ import '../styles/home.css';
     <p class="hero-subtitle">MOLDE O WINDOWS</p>
     <p class="hero-desc">Versao customizada e melhorada do AME Wizard &mdash; <strong>rollback real</strong> com backup de cada alteracao, <strong>IPC seguro</strong> com TrustedInstaller e modo ISO Win 10 + 11.</p>
     <div class="hero-actions">
-        <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/latest" target="_blank" class="btn-main"><i class="fas fa-download"></i> Baixar v1.0.0</a>
-        <a href="https://kt-wirzade-docs.vercel.app" target="_blank" class="btn-ghost btn-cy"><i class="fas fa-book"></i> Documentacao</a>
+        <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/download/v1.0.1/KT-WIRZADE-v1.0.1-win-x64.exe" target="_blank" rel="noopener" class="btn-main"><i class="fas fa-download"></i> Baixar v1.0.1</a>
+        <a href="/docs" class="btn-ghost btn-cy"><i class="fas fa-book"></i> Documentacao</a>
         <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> Codigo fonte</a>
     </div>
     <div class="hero-stats">
@@ -48,6 +48,12 @@ import '../styles/home.css';
     </div>
     <div class="scroll-hint"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>SCROLL</span></div>
   </section>
+
+  <section class="release-strip sec" aria-label="Destaques da versão 1.0.1"><div class="release-strip-in">
+    <div class="release-mark"><span>ATUALIZAÇÃO</span><b>1.0.1</b></div>
+    <div class="release-copy"><strong>Executável único, interface acrílica e motor mais confiável.</strong><span>Atualizador, importação YAML, downloads, rollback e comunicação interna receberam correções de segurança e estabilidade.</span></div>
+    <a href="/docs/changelog">Ver todas as mudanças <i class="fas fa-arrow-right"></i></a>
+  </div></section>
 
   <section id="preview" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
     <div data-reveal style="text-align:center"><div class="s-eyebrow" style="justify-content:center">PREVIEW</div><h2 class="s-title">Veja o <span class="hl">KT WIRZADE</span> em acao</h2><p class="s-body" style="margin:20px auto 0">Interface moderna, sidebar com playbooks, verificacao de integridade e suporte a dezenas de playbooks da comunidade.</p></div>
@@ -165,9 +171,9 @@ import '../styles/home.css';
   </div></section>
 
   <section id="recursos" class="sec pad"><div class="wrap">
-    <div data-reveal><div class="s-eyebrow">RECURSOS</div><h2 class="s-title">Tudo que o AME tem. <span class="hl">E o que ele nao tem.</span></h2><p class="s-body">O KT WIRZADE executa playbooks <code style="background:rgba(139,92,246,.12);padding:2px 8px;border-radius:6px;font-family:var(--fm);font-size:14px;color:var(--vi)">.apbx</code> com privilegio de TrustedInstaller &mdash; mas com seguranca refor &mdash; ada, rollback de verdade e experiencia 100% em portugues.</p></div>
+    <div data-reveal><div class="s-eyebrow">RECURSOS</div><h2 class="s-title">Tudo que o AME tem. <span class="hl">E o que ele nao tem.</span></h2><p class="s-body">O KT WIRZADE executa playbooks <code style="background:rgba(139,92,246,.12);padding:2px 8px;border-radius:6px;font-family:var(--fm);font-size:14px;color:var(--vi)">.apbx</code> com privilegio de TrustedInstaller, verificacoes adicionais, historico de rollback e experiencia 100% em portugues.</p></div>
     <div class="feat-grid">
-        <div class="feat-card" data-reveal><div class="feat-icon fi-g"><i class="fas fa-clock-rotate-left"></i></div><h3>Rollback Real</h3><p>Valor anterior de registro salvo antes de cada mudanca, servicos com backup .reg e arquivos com copia de seguranca. Reverta qualquer playbook.</p></div>
+        <div class="feat-card" data-reveal><div class="feat-icon fi-g"><i class="fas fa-clock-rotate-left"></i></div><h3>Rollback Real</h3><p>Valor anterior de registro salvo antes de mudancas suportadas, servicos com backup .reg e arquivos com copia de seguranca. O relatorio informa o que nao pode ser revertido.</p></div>
         <div class="feat-card" data-reveal><div class="feat-icon fi-v"><i class="fas fa-shield-halved"></i></div><h3>IPC Seguro</h3><p>Cadeia User &gt; Admin &gt; TrustedInstaller com segredo por sessao, ACL restrita e verificacao HMAC-SHA256 em cada mensagem.</p></div>
         <div class="feat-card" data-reveal><div class="feat-icon fi-c"><i class="fas fa-language"></i></div><h3>100% PT-BR</h3><p>Interface completamente traduzida com alternancia PT-BR / EN em tempo real, direto na barra de titulo.</p></div>
         <div class="feat-card" data-reveal><div class="feat-icon fi-a"><i class="fas fa-compact-disc"></i></div><h3>Modo ISO</h3><p>Download de ISOs Win 10/11 ou use uma ISO local. Injecao de playbooks direto na imagem com OOBE customizado.</p></div>
@@ -181,10 +187,10 @@ import '../styles/home.css';
   <section id="como-usar" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
     <div data-reveal><div class="s-eyebrow">GUIA</div><h2 class="s-title">Como <span class="hl">Usar</span>?</h2><p class="s-body">Quatro passos simples para transformar seu Windows.</p></div>
     <div class="steps-track">
-        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--p);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">1</span><i class="fas fa-download"></i></div><h3>Baixe</h3><p>Obtenha o KT WIRZADE no lancamento e um playbook da sua escolha.</p></div>
+        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--p);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">1</span><i class="fas fa-download"></i></div><h3>Baixe</h3><p>Obtenha o executavel unico v1.0.1 e um playbook verificado.</p></div>
         <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--p);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">2</span><i class="fas fa-file-import"></i></div><h3>Carregue</h3><p>Arraste o .apbx para a sidebar. Verificacao de integridade automatica.</p></div>
         <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--p);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">3</span><i class="fas fa-wand-magic-sparkles"></i></div><h3>Personalize</h3><p>Escolha as opcoes em checkboxes e radios. Tudo em portugues.</p></div>
-        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--cy);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">4</span><i class="fas fa-shield"></i></div><h3>Aplique</h3><p>Execute com seguranca &mdash; e reverta tudo com um clique se mudar de ideia.</p></div>
+        <div class="step" data-reveal><div class="step-circle"><span style="position:absolute;top:-5px;right:-5px;background:var(--cy);width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">4</span><i class="fas fa-shield"></i></div><h3>Aplique</h3><p>Acompanhe o log e use o rollback nas alteracoes que possuem backup.</p></div>
     </div>
     <div class="term-wrap">
         <div data-reveal="left"><div class="s-eyebrow">POR DEBAIXO DOS PANOS</div><h2 class="s-title" style="font-size:clamp(34px,4.5vw,52px)">Playbooks em <span class="hl">YAML puro</span></h2><p class="s-body">Cada acao e declarativa, auditavel e reversivel. Nada de scripts opacos: voce le exatamente o que vai acontecer com o seu sistema.</p></div>
@@ -252,10 +258,10 @@ import '../styles/home.css';
   <section id="faq" class="sec pad" style="border-top:1px solid var(--bdr2)"><div class="wrap">
     <div data-reveal><div class="s-eyebrow">FAQ</div><h2 class="s-title">Perguntas <span class="hl">frequentes</span></h2></div>
     <div class="faq-list">
-        <div class="faq-item" data-reveal><button class="faq-q">O KT WIRZADE e seguro? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Sim. Codigo 100% aberto e auditavel, sem executaveis ocultos. Cada alteracao e registrada com backup para rollback. O IPC entre processos usa criptografia HMAC-SHA256 e ACL restrita &mdash; ninguem pode injetar comandos no meio do caminho.</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">Como confiro a seguranca? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Baixe somente pela release oficial, compare o SHA-256 e revise o playbook antes de aplicar. O codigo e aberto; o IPC usa HMAC-SHA256 e ACL restrita. Comandos arbitrarios e remocoes de apps podem nao ter rollback completo.</div></div></div>
         <div class="faq-item" data-reveal><button class="faq-q">Quais versoes do Windows sao suportadas? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Windows 10 (build 19041+) e Windows 11, nas edicoes Home e Pro. Cada playbook declara as builds que suporta &mdash; e o wizard avisa antes de aplicar algo fora da sua versao.</div></div></div>
         <div class="faq-item" data-reveal><button class="faq-q">E gratuito mesmo? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">100% gratuito e de codigo aberto. Sem anuncios, sem telemetria, sem "versao pro".</div></div></div>
-        <div class="faq-item" data-reveal><button class="faq-q">Meu antivirus detectou o playbook. E virus? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Falso positivo esperado: qualquer ferramenta que modifique o Windows em profundidade e sinalizada &mdash; acontece com AtlasOS e ReviOS oficiais tambem. Todos os playbooks do catalogo oficial passam por auditoria automatizada.</div></div></div>
+        <div class="faq-item" data-reveal><button class="faq-q">Meu antivirus detectou o playbook. E virus? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Um alerta pode ocorrer porque o pacote modifica o Windows, mas nao deve ser ignorado automaticamente. Confirme a origem, o hash e o relatorio de auditoria do playbook.</div></div></div>
         <div class="faq-item" data-reveal><button class="faq-q">Quando sera o lancamento? <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><div class="faq-body">Ja disponivel! Baixe na pagina de releases do GitHub e comece a usar agora.</div></div></div>
     </div>
   </div></section>
@@ -263,9 +269,9 @@ import '../styles/home.css';
   <section class="sec pad-sm"><div class="wrap">
     <div class="cta-final" data-reveal="scale">
         <h2>Pronto para <span class="hl2">moldar o Windows</span>?</h2>
-        <p>Disponivel agora. Baixe, extraia e execute — e reverta qualquer coisa com um clique.</p>
+        <p>Disponivel agora. Baixe o executavel unico, revise o playbook e acompanhe cada mudanca.</p>
         <div class="hero-actions" style="margin-bottom:0;animation:none">
-            <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/latest" target="_blank" class="btn-main"><i class="fas fa-download"></i> Baixar v1.0.0</a>
+            <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/download/v1.0.1/KT-WIRZADE-v1.0.1-win-x64.exe" target="_blank" rel="noopener" class="btn-main"><i class="fas fa-download"></i> Baixar v1.0.1</a>
             <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> Codigo fonte</a>
         </div>
     </div>

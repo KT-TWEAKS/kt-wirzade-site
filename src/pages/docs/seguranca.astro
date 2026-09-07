@@ -4,27 +4,27 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
 <DocsLayout
   title="Antivírus &amp; Segurança · KT WIRZADE Docs"
-  description="Por que antivírus acusam falso positivo e como usar o KT WIRZADE com segurança."
+  description="Como avaliar alertas, origem, hash e riscos antes de usar o KT WIRZADE."
   page="seguranca"
 >
   <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Antivírus &amp; segurança</div>
   <header class="page-header">
     <h1>Antivírus &amp; segurança</h1>
-    <p class="lead">Ferramentas que modificam o Windows profundamente são sinalizadas por antivírus — entenda o falso positivo e como se proteger de verdade.</p>
+    <p class="lead">Ferramentas que modificam o Windows profundamente podem ser sinalizadas. Avalie o alerta, a origem e a integridade antes de executar.</p>
   </header>
 
   <h2>Por que o antivírus acusa?</h2>
   <p>Playbooks alteram <strong>registro, serviços e arquivos do sistema</strong>. Para um antivírus, esse comportamento é idêntico ao de malware (persistência, modificação de configuração). Por isso o alerta é genérico: ele não sabe a intenção — só o comportamento.</p>
-  <div class="callout info"><i class="fas fa-circle-info"></i><div><b>Acontece com todos:</b> AtlasOS oficial, ReviOS oficial e qualquer projeto da família AME recebem os mesmos avisos.</div></div>
+  <div class="callout info"><i class="fas fa-circle-info"></i><div><b>Um alerta isolado não determina a intenção do arquivo.</b> Use o hash, a procedência e a análise das ações em conjunto.</div></div>
 
-  <h2>O que torna o processo seguro aqui</h2>
+  <h2>Camadas de verificação</h2>
   <table class="doc-table">
     <thead><tr><th>Camada</th><th>Proteção</th></tr></thead>
     <tbody>
       <tr><td>Integridade</td><td>Hash SHA-256 verificado no playbook antes de aplicar</td></tr>
-      <tr><td>Auditoria</td><td>APBX Developer (em breve) revelará todo o conteúdo do .apbx</td></tr>
+      <tr><td>Auditoria</td><td>O catálogo APBX publica contagens, riscos e builds detectadas durante a análise</td></tr>
       <tr><td>Rastreabilidade</td><td>Log detalhado de cada ação executada</td></tr>
-      <tr><td>Reversão</td><td><a href="/docs/rollback">Rollback real</a> com backup prévio</td></tr>
+      <tr><td>Reversão</td><td><a href="/docs/rollback">Rollback</a> com backup prévio para as ações suportadas</td></tr>
       <tr><td>Código</td><td>Sem ofuscação; ações declaradas em YAML legível dentro do pacote</td></tr>
     </tbody>
   </table>
@@ -38,15 +38,7 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
     <li>Aplique, teste, e use rollback se algo ficar estranho.</li>
   </ol>
 
-  <div class="callout danger"><i class="fas fa-triangle-exclamation"></i><div><b>Nunca desative o antivírus permanentemente.</b> Se precisar para aplicar, reative imediatamente após concluir e reiniciar.</div></div>
-
-  <h2>Se ainda assim quiser liberar o arquivo</h2>
-  <p>Prefira excluir apenas a pasta do playbook nas exceções do Defender (e não o Defender inteiro):</p>
-  <div class="code-block">
-    <div class="code-head"><span class="code-lang">PowerShell (Admin)</span><button class="copy-btn"><i class="far fa-copy"></i> Copiar</button></div>
-    <pre>Add-MpPreference -ExclusionPath "C:\Caminho\Para\Playbooks"</pre>
-  </div>
-  <div class="callout warn"><i class="fas fa-triangle-exclamation"></i><div><b>Faça isso só se confia 100% na origem.</b> Exclusões amplas reduzem sua proteção real contra ameaças genuínas.</div></div>
+  <div class="callout danger"><i class="fas fa-triangle-exclamation"></i><div><b>Não reduza a proteção apenas para fazer um arquivo executar.</b> Se a origem, o hash ou o relatório não coincidirem, interrompa o uso e reporte o pacote.</div></div>
 
   <nav class="pager">
     <a href="/docs/modo-iso"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Modo ISO</span></a>
