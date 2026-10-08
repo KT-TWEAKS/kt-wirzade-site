@@ -237,3 +237,25 @@ button { font: inherit; }
 .visual-orbit { opacity: .3; }
 .app-window { box-shadow: 0 35px 90px rgba(0,0,0,.6), 0 0 70px rgba(113,75,177,.1); }
 @media (prefers-reduced-motion: reduce) { .ambient-grid, .ambient-scene::before { animation: none; } }
+
+/* Primeiro quadro sempre visível: a animação não pode parecer um carregamento quebrado. */
+.hero [data-reveal] { opacity: 1; transform: none; }
+.hero-copy { animation: hero-copy-in .72s cubic-bezier(.2,.7,.2,1) both; }
+.hero-visual { animation: hero-visual-in .82s cubic-bezier(.2,.7,.2,1) .08s both; }
+@keyframes hero-copy-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes hero-visual-in { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: none; } }
+
+/* O cenário de fundo é CSS puro e continua presente mesmo antes do JS. */
+.site-page {
+  background:
+    radial-gradient(ellipse 54% 70% at 29% 37%, rgba(126,84,197,.24) 0%, rgba(126,84,197,.1) 38%, transparent 72%),
+    radial-gradient(ellipse 48% 68% at 73% 39%, rgba(28,151,167,.14) 0%, rgba(28,151,167,.06) 42%, transparent 72%),
+    #07080c;
+}
+.ambient-scene { opacity: .86; }
+.ambient-scene::before { opacity: .9; }
+.ambient-grid { opacity: .5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy, .hero-visual { animation: none; }
+}
