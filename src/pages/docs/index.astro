@@ -10,11 +10,13 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Visão geral</div>
   <header class="page-header">
     <h1>KT WIRZADE</h1>
-    <p class="lead">Fork do AME Wizard com rollback real, interface em português, dashboard com cache offline e modo ISO completo. Esta documentação cobre instalação, uso diário e segurança.</p>
+    <p class="lead">Toolkit para Windows com playbooks APBX, revisão antes da execução, histórico local e recuperação. Esta documentação cobre o fluxo público, instalação, uso diário e segurança.</p>
   </header>
 
+  <div class="callout info"><i class="fas fa-route"></i><div><b>Comece pelo fluxo APBX.</b> O catálogo público ajuda a encontrar e conferir a release; o KT WIRZADE abre o arquivo e mostra o que será feito. <a href="/docs/fluxo-apbx">Abrir mapa interativo</a>.</div></div>
+
   <h2>O que é o KT WIRZADE?</h2>
-  <p>O <strong>KT WIRZADE</strong> é um gerenciador de playbooks para Windows: você carrega um arquivo <code>.apbx</code>, confere o que será feito e aplica com privilégios de <strong>TrustedInstaller</strong>. Ele nasceu como fork do AME Wizard e mantém compatibilidade com a comunidade — adicionando recursos próprios.</p>
+  <p>O <strong>KT WIRZADE</strong> é um gerenciador de playbooks para Windows: você carrega um arquivo <code>.apbx</code>, confere o que será feito e decide se quer aplicar. A interface organiza requisitos, avisos, ações, progresso e histórico para que a operação não seja uma caixa-preta.</p>
 
   <div class="card-grid">
     <span class="doc-card">
@@ -57,8 +59,8 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
   <h2>Comece por aqui</h2>
   <div class="steps">
-    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Baixe um playbook</h4><p>Arquivos <code>.apbx</code> da central KT TWEAKS ou da comunidade AME.</p></div></div>
-    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Confira as opcoes</h4><p>Veja exatamente o que sera feito antes de aplicar — tudo transparente em YAML.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Encontre no catálogo</h4><p>Use o <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" rel="noopener">catálogo APBX público</a> para pesquisar, comparar e baixar uma release verificada.</p></div></div>
+    <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Confira as opções</h4><p>Veja exatamente o que será feito antes de aplicar — com atenção ao hash, aos avisos e às ações descritas.</p></div></div>
     <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Aplique pelo app</h4><p>Arraste o <code>.apbx</code>, acompanhe o log e reinicie ao final.</p></div></div>
     <div class="step-item"><div class="step-n"></div><div class="step-body"><h4>Se precisar, reverta</h4><p>O <a href="/docs/rollback">rollback</a> desfaz registro, serviços e arquivos com um clique.</p></div></div>
   </div>

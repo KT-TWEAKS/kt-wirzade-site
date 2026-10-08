@@ -111,7 +111,45 @@
   }
 
   /* ----------------------------------------------------------
-     4. REVEAL ON SCROLL
+     4. INTERACTIVE PRODUCT FLOW
+     The public page explains one step at a time without hiding content
+     from assistive technology or requiring a framework runtime.
+     ---------------------------------------------------------- */
+  var flowSteps = document.querySelectorAll("[data-flow-step]");
+  var flowPanels = document.querySelectorAll("[data-flow-panel]");
+  if (flowSteps.length && flowPanels.length) {
+    function activateFlow(index, moveFocus) {
+      var next = Math.max(0, Math.min(index, flowSteps.length - 1));
+      flowSteps.forEach(function (step, stepIndex) {
+        var active = stepIndex === next;
+        step.classList.toggle("is-active", active);
+        step.setAttribute("aria-selected", active ? "true" : "false");
+        step.setAttribute("tabindex", active ? "0" : "-1");
+      });
+      flowPanels.forEach(function (panel, panelIndex) {
+        panel.hidden = panelIndex !== next;
+      });
+      if (moveFocus) flowSteps[next].focus();
+    }
+    flowSteps.forEach(function (step, index) {
+      step.addEventListener("click", function () { activateFlow(index, false); });
+      step.addEventListener("keydown", function (event) {
+        var next = index;
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") next += 1;
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") next -= 1;
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = flowSteps.length - 1;
+        if (next !== index) {
+          event.preventDefault();
+          activateFlow(next < 0 ? flowSteps.length - 1 : next >= flowSteps.length ? 0 : next, true);
+        }
+      });
+    });
+    activateFlow(0, false);
+  }
+
+  /* ----------------------------------------------------------
+     5. REVEAL ON SCROLL
      IntersectionObserver for [data-reveal] and .reveal elements.
      Supports data-reveal="left", "right", "scale" variants.
      ---------------------------------------------------------- */

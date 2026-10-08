@@ -11,6 +11,13 @@ const principles = [
   { number: '04', title: 'Recuperar', text: 'Snapshots e histórico deixam o caminho de volta visível.' },
 ];
 
+const flowDetails = [
+  { label: 'LEITURA DO SISTEMA', text: 'O app começa pelo estado atual: requisitos, contexto e possíveis impactos aparecem antes de qualquer confirmação.', link: '/docs/fluxo-apbx', action: 'Ver o fluxo completo' },
+  { label: 'DECISÃO INFORMADA', text: 'O playbook mostra suas ações, avisos e dependências. Você pode interromper a leitura sem alterar o computador.', link: '/docs/seguranca', action: 'Revisar segurança' },
+  { label: 'EXECUÇÃO PROTEGIDA', text: 'A aplicação segue tipos e parâmetros permitidos, com elevação controlada, progresso visível e registro da sessão.', link: '/docs/instalar-playbooks', action: 'Abrir guia de instalação' },
+  { label: 'CAMINHO DE VOLTA', text: 'O histórico local organiza o que aconteceu e mantém o rollback perto da decisão quando a operação for recuperável.', link: '/docs/rollback', action: 'Entender rollback' },
+];
+
 const layers = [
   { number: '01', label: 'HOST', title: 'Aplicativo nativo', text: 'A execução fica no computador, com elevação controlada pelo Windows.' },
   { number: '02', label: 'IPC', title: 'Comandos validados', text: 'A interface não envia comandos livres para o processo elevado.' },
@@ -70,7 +77,10 @@ const capabilities = [
 
       <section class="section dark-section" id="como-funciona">
         <div class="section-heading light" data-reveal="left"><p class="kicker">FLUXO / 02</p><h2>Leia. Decida.<br /><em>Recupere.</em></h2><p>O produto organiza o processo em quatro momentos, para que o ajuste não vire um salto no escuro.</p></div>
-        <div class="flow-board" data-reveal="right">{principles.map((item, index) => <div class="flow-step"><span>0{index + 1}</span><div class="flow-line"></div><h3>{item.title}</h3><p>{item.text}</p></div>)}</div>
+        <div class="flow-interactive" data-reveal="right">
+          <div class="flow-board" role="tablist" aria-label="Etapas do KT WIRZADE">{principles.map((item, index) => <button class:list={['flow-step', index === 0 && 'is-active']} type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`flow-panel-${index}`} data-flow-step={index}><span>0{index + 1}</span><div class="flow-line"></div><h3>{item.title}</h3><p>{item.text}</p></button>)}</div>
+          <div class="flow-detail" aria-live="polite">{flowDetails.map((detail, index) => <div id={`flow-panel-${index}`} class="flow-panel" data-flow-panel={index} role="tabpanel" hidden={index !== 0}><span>{detail.label}</span><strong>{detail.text}</strong><a href={detail.link}>{detail.action} <i class="fas fa-arrow-right"></i></a></div>)}</div>
+        </div>
       </section>
 
       <section class="section architecture-section" id="arquitetura">
@@ -97,7 +107,7 @@ const capabilities = [
     <span class="code-prop">operation</span>: <span class="code-string">disable</span></code></pre><div class="code-foot"><span><i></i> parser ready</span><span>SHA-256 / checked</span></div></div>
       </section>
 
-      <section class="section documentation-section" id="documentacao"><div class="doc-card" data-reveal><div><p class="kicker">GUIA / 06</p><h2>Não aplique no escuro.</h2><p>Veja instalação, limites de rollback, modo ISO, segurança e perguntas frequentes na documentação pública.</p></div><div class="doc-links"><a href="/docs"><span>01</span> Visão geral <i class="fas fa-arrow-right"></i></a><a href="/docs/seguranca"><span>02</span> Segurança <i class="fas fa-arrow-right"></i></a><a href="/docs/rollback"><span>03</span> Rollback <i class="fas fa-arrow-right"></i></a><a href="/docs/faq"><span>04</span> FAQ <i class="fas fa-arrow-right"></i></a></div></div></section>
+      <section class="section documentation-section" id="documentacao"><div class="doc-card" data-reveal><div><p class="kicker">GUIA / 06</p><h2>Não aplique no escuro.</h2><p>Veja o fluxo público APBX → WIRZADE, instalação, limites de rollback, modo ISO, segurança e perguntas frequentes.</p></div><div class="doc-links"><a href="/docs/fluxo-apbx"><span>01</span> Fluxo APBX <i class="fas fa-arrow-right"></i></a><a href="/docs"><span>02</span> Visão geral <i class="fas fa-arrow-right"></i></a><a href="/docs/seguranca"><span>03</span> Segurança <i class="fas fa-arrow-right"></i></a><a href="/docs/rollback"><span>04</span> Rollback <i class="fas fa-arrow-right"></i></a></div></div></section>
 
       <section class="download-band" id="download" data-reveal><div><p class="kicker">RELEASE PÚBLICA / 1.0.1</p><h2>Seu sistema continua sendo seu.</h2><p>Baixe pela release oficial, confira a origem e leia o playbook antes de executar.</p></div><a class="button button-dark" href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/download/v1.0.1/KT-WIRZADE-v1.0.1-win-x64.exe" target="_blank" rel="noopener">Baixar para Windows <span>↗</span></a></section>
     </main>
