@@ -1,0 +1,57 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Guia Developer · KT WIRZADE Docs"
+  description="Arquitetura pública, fluxo do motor e guia de contribuição do KT WIRZADE."
+  page="developer"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Guia developer</div>
+  <header class="page-header">
+    <p class="eyebrow"><i class="fas fa-code-branch"></i> CÓDIGO ABERTO / KT TWEAKS</p>
+    <h1>Desenvolver o KT WIRZADE</h1>
+    <p class="lead">Uma visão prática da arquitetura, do fluxo de execução e dos cuidados para contribuir com o toolkit de playbooks do Windows.</p>
+  </header>
+
+  <div class="callout info"><i class="fab fa-github"></i><div><b>Fonte pública.</b> O código, issues e pull requests estão no <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" rel="noopener">repositório oficial KT-TWEAKS/KT-WIRZADE</a>. Esta página documenta o produto público; detalhes de licença e registro permanecem fora da superfície pública.</div></div>
+
+  <div class="flow-tabs" role="tablist" aria-label="Guia de desenvolvimento">
+    <button class="flow-tab active" type="button" role="tab" aria-selected="true" data-flow-tab="0"><i class="fas fa-sitemap"></i> Arquitetura</button>
+    <button class="flow-tab" type="button" role="tab" aria-selected="false" data-flow-tab="1"><i class="fas fa-diagram-project"></i> Motor</button>
+    <button class="flow-tab" type="button" role="tab" aria-selected="false" data-flow-tab="2"><i class="fas fa-shield-halved"></i> Segurança</button>
+    <button class="flow-tab" type="button" role="tab" aria-selected="false" data-flow-tab="3"><i class="fas fa-hammer"></i> Contribuir</button>
+  </div>
+
+  <section class="flow-tab-panel" data-flow-panel="0">
+    <div class="dev-grid"><div><h2>Camadas que têm responsabilidade clara</h2><p>O aplicativo WPF apresenta a experiência; o Shared concentra parser, ações, downloads, updates e rollback; Core e Interprocess isolam operações sensíveis.</p><div class="dev-tree"><code>KT-Wirzade.sln</code><span>├─ KTWirzade.GUI/ <em>WPF, telas e DevKit</em></span><span>├─ KTWirzade.Shared/ <em>parser, ações e rollback</em></span><span>├─ KTWirzade.CLI/ <em>automação</em></span><span>├─ Core/ <em>logs, Win32 e processos</em></span><span>└─ Interprocess/ <em>IPC entre níveis</em></span></div></div><div class="dev-facts"><div><small>GUI / CORE</small><b>.NET Framework 4.8</b></div><div><small>SHARED / CLI</small><b>.NET Framework 4.7.2</b></div><div><small>PLATAFORMA</small><b>Windows 10/11 x64</b></div></div></div>
+  </section>
+
+  <section class="flow-tab-panel" data-flow-panel="1" hidden>
+    <h2>Do arquivo ao histórico</h2><p>Um playbook <code>.apbx</code> entra como intenção declarativa. O motor lê, valida, apresenta opções e só então executa cada ação suportada, registrando o resultado.</p>
+    <div class="dev-pipeline"><span><i class="fas fa-file-code"></i><b>.apbx</b><small>entrada</small></span><i class="fas fa-arrow-right"></i><span><i class="fas fa-list-check"></i><b>parse + validate</b><small>regras</small></span><i class="fas fa-arrow-right"></i><span><i class="fas fa-user-check"></i><b>revisão</b><small>confirmação</small></span><i class="fas fa-arrow-right"></i><span><i class="fas fa-gears"></i><b>ações</b><small>execução</small></span><i class="fas fa-arrow-right"></i><span><i class="fas fa-clock-rotate-left"></i><b>rollback</b><small>histórico</small></span></div>
+    <div class="code-block dev-code"><div class="code-head"><span>playbook.conf</span><button class="copy-btn" type="button"><i class="fas fa-copy"></i> Copiar</button></div><pre><code>!registryValue:
+  path: HKLM\\Software\\Policies
+  value: AllowTelemetry
+  data: 0
+  type: REG_DWORD
+
+!service:
+  name: DiagTrack
+  operation: disable</code></pre></div>
+  </section>
+
+  <section class="flow-tab-panel" data-flow-panel="2" hidden>
+    <h2>Segurança é parte do contrato</h2><p>Contribuições devem manter as fronteiras já documentadas: ações explícitas, caminhos confinados, downloads verificáveis e comunicação elevada autenticada.</p>
+    <div class="dev-security-grid"><article><i class="fas fa-folder-tree"></i><h3>Confinamento</h3><p>Includes ficam limitados ao diretório de configuração, com proteção contra ciclos, links externos e profundidade excessiva.</p></article><article><i class="fas fa-download"></i><h3>Downloads</h3><p>Origem, destino, tamanho e, quando fornecido, SHA-256 são validados antes do uso.</p></article><article><i class="fas fa-key"></i><h3>IPC protegido</h3><p>O canal entre usuário, administrador e TrustedInstaller usa segredo aleatório, ACL e HMAC.</p></article><article><i class="fas fa-file-shield"></i><h3>Falhas visíveis</h3><p>Erros ficam registrados como falhas; hash confere integridade, não substitui assinatura Authenticode.</p></article></div>
+  </section>
+
+  <section class="flow-tab-panel" data-flow-panel="3" hidden>
+    <h2>Build e contribuição local</h2><p>O build oficial é voltado para Windows. Instale as ferramentas necessárias, execute o script de release e revise os artefatos antes de abrir uma PR.</p>
+    <ol class="dev-steps"><li><b>Prepare</b><span>Windows 10/11 x64, Visual Studio Build Tools com MSBuild, .NET Framework Dev Packs 4.7.2 e 4.8, além do NuGet.</span></li><li><b>Compile</b><span>No clone público, execute <code>.scriptsuild-release.ps1</code> em um PowerShell do Windows.</span></li><li><b>Confira</b><span>O processo gera o executável, manifest e <code>SHA256SUMS.txt</code> dentro de <code>artifacts/</code>.</span></li><li><b>Contribua</b><span>Abra uma issue ou pull request explicando o cenário, versão do Windows e impacto da mudança.</span></li></ol>
+  </section>
+
+  <div class="callout warning"><i class="fas fa-triangle-exclamation"></i><div><b>Limites importantes.</b> Rollback não desfaz automaticamente remoção de aplicativos/pacotes, comandos arbitrários ou operações sem backup. Consulte <a href="/docs/rollback">Rollback</a> e <a href="/docs/seguranca">Segurança</a> antes de criar novas ações.</div></div>
+
+  <nav class="pager"><a href="/docs/apbx-developer"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">APBX Developer</span></a><a class="next" href="/docs/faq"><span class="dir">Próximo</span><span class="name">FAQ &amp; suporte <i class="fas fa-arrow-right"></i></span></a></nav>
+</DocsLayout>

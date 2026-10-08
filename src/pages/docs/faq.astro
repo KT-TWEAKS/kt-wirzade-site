@@ -14,43 +14,56 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
   </header>
 
   <h2>Perguntas frequentes</h2>
+  <div class="faq-toolbar">
+    <label class="faq-search"><i class="fas fa-magnifying-glass" aria-hidden="true"></i><input id="faq-search" data-faq-search type="search" placeholder="Buscar uma pergunta..." autocomplete="off" /></label>
+    <span id="faq-count" class="faq-count" aria-live="polite">11 perguntas visíveis</span>
+  </div>
 
-  <details class="faq-item" open>
+  <details class="faq-item" data-faq-item open>
     <summary>Como o catálogo APBX e o KT WIRZADE trabalham juntos?</summary>
     <div class="faq-a">O <a href="https://kt-tweaks-apbx.vercel.app" target="_blank" rel="noopener">catálogo público</a> ajuda a encontrar, comparar e baixar releases verificadas. Depois, você abre o arquivo no KT WIRZADE para revisar as ações e decidir se quer aplicar. Veja o <a href="/docs/fluxo-apbx">fluxo completo</a>.</div>
   </details>
-  <details class="faq-item" open>
+  <details class="faq-item" data-faq-item open>
     <summary>O KT WIRZADE é gratuito?</summary>
     <div class="faq-a">Sim, 100%. A versão atual está disponível na <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/tag/v1.0.1">release oficial do GitHub</a>.</div>
   </details>
-  <details class="faq-item">
+  <details class="faq-item" data-faq-item>
     <summary>É vírus? Meu antivírus acusa.</summary>
     <div class="faq-a">Ferramentas que modificam registro, serviços e arquivos podem disparar heurísticas. Confirme que o download veio da release oficial e compare o SHA-256 publicado antes de executar. Veja <a href="/docs/seguranca">Antivírus &amp; segurança</a>.</div>
   </details>
-  <details class="faq-item">
+  <details class="faq-item" data-faq-item>
     <summary>O rollback desfaz tudo?</summary>
     <div class="faq-a">Reverte tweaks de registro, serviços (via backup .reg) e arquivos de playbook. <b>Não reverte:</b> apps removidos (debloat), limpeza de temporários e efeitos colaterais de comandos arbitrários. Detalhes na página de <a href="/docs/rollback">Rollback</a>.</div>
   </details>
-  <details class="faq-item">
+  <details class="faq-item" data-faq-item>
     <summary>Funciona no Windows 10?</summary>
     <div class="faq-a">Sim. O app roda em Windows 10 e 11, o modo ISO baixa imagens dos dois, e ainda aceita qualquer ISO local sua.</div>
   </details>
-  <details class="faq-item">
+  <details class="faq-item" data-faq-item>
     <summary>Posso usar playbooks do AME Wizard original?</summary>
     <div class="faq-a">Sim — o formato <code>.apbx</code> é o mesmo. Playbooks da comunidade (AtlasOS, ReviOS etc.) funcionam, com o bônus de recursos exclusivos como rollback real e aviso de rede.</div>
   </details>
-  <details class="faq-item">
+  <details class="faq-item" data-faq-item>
     <summary>Preciso de internet?</summary>
     <div class="faq-a">Apenas para baixar playbooks/ISOs. Com o cache offline, reaplicar não exige conexão — e o app avisa antecipadamente quantas etapas dependem de rede.</div>
   </details>
-  <details class="faq-item">
+  <details class="faq-item" data-faq-item>
     <summary>Funciona junto com o AME Wizard instalado?</summary>
     <div class="faq-a">São apps independentes. Evite aplicar o mesmo playbook pelos dois no mesmo sistema sem reverter antes, para não misturar estados.</div>
   </details>
-  <details class="faq-item">
+  <details class="faq-item" data-faq-item>
     <summary>Onde baixo a versão atual?</summary>
     <div class="faq-a">Baixe o executável único do <a href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/tag/v1.0.1">KT WIRZADE 1.0.1</a>. Usuários da 1.0.0 devem atualizar manualmente.</div>
   </details>
+  <details class="faq-item" data-faq-item>
+    <summary>O código do KT WIRZADE é público?</summary>
+    <div class="faq-a">Sim. O desenvolvimento público, issues e pull requests ficam no <a href="https://github.com/KT-TWEAKS/KT-WIRZADE" target="_blank" rel="noopener">repositório oficial</a>. A <a href="/docs/developer">guia developer</a> resume a arquitetura e o build.</div>
+  </details>
+  <details class="faq-item" data-faq-item>
+    <summary>Posso criar ou revisar meus próprios playbooks?</summary>
+    <div class="faq-a">Sim. A documentação pública explica a estrutura e os tipos de ação aceitos. Revise o conteúdo no APBX Developer e teste primeiro em um ambiente recuperável.</div>
+  </details>
+  <div class="faq-empty" data-faq-empty hidden><i class="fas fa-filter-circle-xmark"></i><b>Nenhuma pergunta encontrada.</b><span>Tente outro termo, como “rollback”, “ISO” ou “developer”.</span></div>
 
   <h2>Como pedir suporte</h2>
   <ol>
@@ -60,18 +73,14 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
     <li>Abra uma issue no GitHub da organização com esses detalhes.</li>
   </ol>
 
-  <div class="card-grid">
-    <a class="doc-card" href="https://github.com/KT-TWEAKS" target="_blank" rel="noopener">
-      <i class="big fab fa-github"></i>
-      <h4>GitHub · KT TWEAKS</h4>
-      <p>Issues, releases e novidades do projeto.</p>
-      <span class="go">Abrir <i class="fas fa-arrow-up-right-from-square"></i></span>
+  <div class="profile-grid">
+    <a class="profile-card" href="https://github.com/KT-TWEAKS" target="_blank" rel="noopener">
+      <img class="profile-avatar" src="https://avatars.githubusercontent.com/KT-TWEAKS?s=240" alt="Avatar da organização KT TWEAKS" loading="lazy" decoding="async" />
+      <span><small>ORGANIZAÇÃO</small><h4>KT TWEAKS</h4><p>Issues, releases e projetos públicos.</p></span><i class="fab fa-github"></i>
     </a>
-    <a class="doc-card" href="https://github.com/kelvenapk" target="_blank" rel="noopener">
-      <i class="big fas fa-user"></i>
-      <h4>kelvenapk</h4>
-      <p>Criador do KT WIRZADE e mantenedor da doc.</p>
-      <span class="go">Abrir <i class="fas fa-arrow-up-right-from-square"></i></span>
+    <a class="profile-card" href="https://github.com/kelvenapk" target="_blank" rel="noopener">
+      <img class="profile-avatar" src="https://avatars.githubusercontent.com/kelvenapk?s=240" alt="Foto pública do perfil kelvenapk" loading="lazy" decoding="async" />
+      <span><small>MANTENEDOR</small><h4>kelvenapk</h4><p>Perfil do criador e mantenedor do produto.</p></span><i class="fab fa-github"></i>
     </a>
   </div>
 

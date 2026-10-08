@@ -48,6 +48,12 @@ const { title, description, page } = Astro.props;
       </ul>
     </div>
     <div class="nav-group">
+      <div class="nav-title">Desenvolvimento</div>
+      <ul>
+        <li><a class="nav-link" data-nav="developer" href="/docs/developer"><i class="fas fa-terminal"></i> Guia developer</a></li>
+      </ul>
+    </div>
+    <div class="nav-group">
       <div class="nav-title">Segurança &amp; Ajuda</div>
       <ul>
         <li><a class="nav-link" data-nav="seguranca" href="/docs/seguranca"><i class="fas fa-shield-halved"></i> Antivírus &amp; segurança</a></li>
@@ -155,6 +161,27 @@ const { title, description, page } = Astro.props;
       });
     });
     activateFlowTab(0, false);
+  }
+
+  // Busca instantânea na FAQ
+  var faqSearch = document.querySelector("[data-faq-search]");
+  var faqItems = document.querySelectorAll("[data-faq-item]");
+  var faqCount = document.getElementById("faq-count");
+  var faqEmpty = document.querySelector("[data-faq-empty]");
+  if (faqSearch && faqItems.length) {
+    function filterFaq() {
+      var query = (faqSearch.value || "").trim().toLowerCase();
+      var visible = 0;
+      faqItems.forEach(function (item) {
+        var matches = !query || (item.textContent || "").toLowerCase().indexOf(query) !== -1;
+        item.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (faqCount) faqCount.textContent = visible + (visible === 1 ? " pergunta visível" : " perguntas visíveis");
+      if (faqEmpty) faqEmpty.hidden = visible !== 0;
+    }
+    faqSearch.addEventListener("input", filterFaq);
+    filterFaq();
   }
 
   // Reveal suave nos headings
