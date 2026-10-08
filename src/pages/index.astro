@@ -12,10 +12,10 @@ const principles = [
 ];
 
 const flowDetails = [
-  { label: 'LEITURA DO SISTEMA', text: 'O app começa pelo estado atual: requisitos, contexto e possíveis impactos aparecem antes de qualquer confirmação.', link: '/docs/fluxo-apbx', action: 'Ver o fluxo completo' },
-  { label: 'DECISÃO INFORMADA', text: 'O playbook mostra suas ações, avisos e dependências. Você pode interromper a leitura sem alterar o computador.', link: '/docs/seguranca', action: 'Revisar segurança' },
-  { label: 'EXECUÇÃO PROTEGIDA', text: 'A aplicação segue tipos e parâmetros permitidos, com elevação controlada, progresso visível e registro da sessão.', link: '/docs/instalar-playbooks', action: 'Abrir guia de instalação' },
-  { label: 'CAMINHO DE VOLTA', text: 'O histórico local organiza o que aconteceu e mantém o rollback perto da decisão quando a operação for recuperável.', link: '/docs/rollback', action: 'Entender rollback' },
+  { label: 'LEITURA DO SISTEMA', text: 'O app começa pelo estado atual: requisitos, contexto e possíveis impactos aparecem antes de qualquer confirmação.', metric: 'nenhuma mudança aplicada', link: '/docs/fluxo-apbx', action: 'Ver o fluxo completo' },
+  { label: 'DECISÃO INFORMADA', text: 'O playbook mostra suas ações, avisos e dependências. Você pode interromper a leitura sem alterar o computador.', metric: 'revisão antes da execução', link: '/docs/seguranca', action: 'Revisar segurança' },
+  { label: 'EXECUÇÃO PROTEGIDA', text: 'A aplicação segue tipos e parâmetros permitidos, com elevação controlada, progresso visível e registro da sessão.', metric: 'progresso + logs locais', link: '/docs/instalar-playbooks', action: 'Abrir guia de instalação' },
+  { label: 'CAMINHO DE VOLTA', text: 'O histórico local organiza o que aconteceu e mantém o rollback perto da decisão quando a operação for recuperável.', metric: 'recuperação quando suportada', link: '/docs/rollback', action: 'Entender rollback' },
 ];
 
 const layers = [
@@ -76,11 +76,23 @@ const capabilities = [
         <div class="principle-list" data-reveal="right">{principles.map((item) => <article data-spotlight><span class="principle-icon"><i class={`fas ${item.icon}`} aria-hidden="true"></i></span><div><small class="principle-number">{item.number}</small><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>
       </section>
 
-      <section class="section dark-section" id="como-funciona">
-        <div class="section-heading light" data-reveal="left"><p class="kicker">FLUXO / 02</p><h2>Leia. Decida.<br /><em>Recupere.</em></h2><p>O produto organiza o processo em quatro momentos, para que o ajuste não vire um salto no escuro.</p></div>
-        <div class="flow-interactive" data-reveal="right">
-          <div class="flow-board" role="tablist" aria-label="Etapas do KT WIRZADE">{principles.map((item, index) => <button class:list={['flow-step', index === 0 && 'is-active']} type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`flow-panel-${index}`} data-flow-step={index}><span>0{index + 1}</span><i class={`flow-icon fas ${item.icon}`} aria-hidden="true"></i><div class="flow-line"></div><h3>{item.title}</h3><p>{item.text}</p></button>)}</div>
-          <div class="flow-detail" aria-live="polite">{flowDetails.map((detail, index) => <div id={`flow-panel-${index}`} class="flow-panel" data-flow-panel={index} role="tabpanel" hidden={index !== 0}><span>{detail.label}</span><strong>{detail.text}</strong><a href={detail.link}>{detail.action} <i class="fas fa-arrow-right"></i></a></div>)}</div>
+      <section class="section dark-section flow-showcase" id="como-funciona">
+        <div class="section-heading light flow-heading" data-reveal="left">
+          <div class="flow-kicker-line"><p class="kicker">FLUXO / 02</p><span class="flow-live"><i></i> MOTOR LOCAL</span></div>
+          <h2>Leia antes.<br /><em>Decida melhor.</em></h2>
+          <p>O WIRZADE transforma um ajuste de sistema em uma sequência visível: primeiro você entende, depois confirma, e só então aplica.</p>
+          <div class="flow-readout" aria-live="polite"><div><span class="flow-readout-dot"></span><small data-flow-status>ETAPA 01 / LEITURA DO SISTEMA</small></div><strong data-flow-headline>Nenhuma alteração começa sem contexto.</strong></div>
+          <div class="flow-mini-grid"><div><i class="fas fa-eye"></i><span><small>ANTES</small><b>ler</b></span></div><div><i class="fas fa-fingerprint"></i><span><small>DURANTE</small><b>registrar</b></span></div><div><i class="fas fa-rotate-left"></i><span><small>DEPOIS</small><b>recuperar</b></span></div></div>
+          <a class="text-link" href="/docs/fluxo-apbx">Abrir o mapa APBX completo <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="flow-interactive flow-console" data-reveal="right" data-spotlight>
+          <div class="flow-console-top"><span class="console-lights"><i></i><i></i><i></i></span><span>KT WIRZADE / CONTROL FLOW</span><b><i class="fas fa-circle-check"></i> READY</b></div>
+          <div class="flow-console-body">
+            <div class="flow-rail" aria-hidden="true"><span class="flow-rail-track"></span><span class="flow-rail-fill" data-flow-progress></span></div>
+            <div class="flow-board" role="tablist" aria-label="Etapas do KT WIRZADE">{principles.map((item, index) => <button class:list={['flow-step', index === 0 && 'is-active']} type="button" role="tab" aria-selected={index === 0 ? 'true' : 'false'} aria-controls={`flow-panel-${index}`} data-flow-step={index}><span class="flow-step-index">0{index + 1}</span><span class="flow-step-copy"><span class="flow-step-top"><i class={`flow-icon fas ${item.icon}`} aria-hidden="true"></i><small>{index === 0 ? 'INPUT' : index === 1 ? 'REVIEW' : index === 2 ? 'APPLY' : 'RECOVERY'}</small></span><strong>{item.title}</strong><em>{item.text}</em></span><i class="flow-step-arrow fas fa-arrow-right" aria-hidden="true"></i></button>)}</div>
+            <div class="flow-detail" aria-live="polite">{flowDetails.map((detail, index) => <div id={`flow-panel-${index}`} class="flow-panel" data-flow-panel={index} role="tabpanel" hidden={index !== 0}><div class="flow-panel-head"><span class="flow-panel-icon"><i class={`fas ${principles[index].icon}`} aria-hidden="true"></i></span><div><span>{detail.label}</span><small>CHECKPOINT 0{index + 1} / 04</small></div></div><strong>{detail.text}</strong><div class="flow-panel-foot"><span><i class="fas fa-circle-check"></i> {detail.metric}</span><a href={detail.link}>{detail.action} <i class="fas fa-arrow-right"></i></a></div></div>)}</div>
+          </div>
+          <div class="flow-console-foot"><span><i class="fas fa-lock"></i> execução local</span><span><i class="fas fa-wave-square"></i> estado sincronizado</span><span>APBX → WIRZADE</span></div>
         </div>
       </section>
 

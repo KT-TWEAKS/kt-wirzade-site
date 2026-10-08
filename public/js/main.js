@@ -118,6 +118,15 @@
   var flowSteps = document.querySelectorAll("[data-flow-step]");
   var flowPanels = document.querySelectorAll("[data-flow-panel]");
   if (flowSteps.length && flowPanels.length) {
+    var flowProgress = document.querySelector("[data-flow-progress]");
+    var flowStatus = document.querySelector("[data-flow-status]");
+    var flowHeadline = document.querySelector("[data-flow-headline]");
+    var flowHeadlines = [
+      "Nenhuma alteração começa sem contexto.",
+      "Você escolhe depois de entender o impacto.",
+      "A execução deixa um rastro que você consegue revisar.",
+      "O caminho de volta fica perto da decisão."
+    ];
     function activateFlow(index, moveFocus) {
       var next = Math.max(0, Math.min(index, flowSteps.length - 1));
       flowSteps.forEach(function (step, stepIndex) {
@@ -129,6 +138,11 @@
       flowPanels.forEach(function (panel, panelIndex) {
         panel.hidden = panelIndex !== next;
       });
+      var activePanel = flowPanels[next];
+      var activeLabel = activePanel && activePanel.querySelector(".flow-panel-head > div > span");
+      if (flowProgress) flowProgress.style.height = (((next + 1) / flowSteps.length) * 100) + "%";
+      if (flowStatus) flowStatus.textContent = "ETAPA 0" + (next + 1) + " / " + (activeLabel ? activeLabel.textContent : "FLUXO");
+      if (flowHeadline) flowHeadline.textContent = flowHeadlines[next] || flowHeadlines[0];
       if (moveFocus) flowSteps[next].focus();
     }
     flowSteps.forEach(function (step, index) {
