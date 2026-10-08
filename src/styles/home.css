@@ -259,3 +259,17 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   .hero-copy, .hero-visual { animation: none; }
 }
+
+/* Fundo Platinum+ limpo: uma atmosfera ampla, sem partículas ou bolhas soltas. */
+.site-page {
+  background:
+    radial-gradient(ellipse 58% 66% at 34% 13%, rgba(124,82,191,.23) 0%, rgba(124,82,191,.08) 39%, transparent 72%),
+    radial-gradient(ellipse 44% 56% at 75% 27%, rgba(27,150,167,.13) 0%, rgba(27,150,167,.045) 44%, transparent 74%),
+    #07080c;
+}
+.ambient-orb { display: none; }
+.ambient-scene::before { inset: -28%; background: radial-gradient(ellipse 34% 44% at 30% 22%, rgba(135,82,196,.2), transparent 72%), radial-gradient(ellipse 23% 38% at 72% 28%, rgba(37,158,173,.1), transparent 74%); filter: blur(32px); opacity: .82; animation: wirzade-clean-glow 24s ease-in-out infinite alternate; }
+.ambient-scene::after { inset: 0; opacity: .27; background-image: linear-gradient(rgba(170,145,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(86,217,232,.07) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(to bottom, transparent 1%, #000 15%, #000 65%, transparent 100%); }
+.ambient-grid { display: none; }
+@keyframes wirzade-clean-glow { from { transform: translate3d(-1%,0,0) scale(1); } to { transform: translate3d(2%,1%,0) scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .ambient-scene::before { animation: none; } }
