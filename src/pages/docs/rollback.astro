@@ -1,0 +1,58 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Rollback · KT WIRZADE Docs"
+  description="Como funciona o rollback real do KT WIRZADE: o que é revertido, limites e sessões."
+  page="rollback"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Rollback</div>
+  <header class="page-header">
+    <h1>Rollback real</h1>
+    <p class="lead">Toda aplicação cria uma sessão de rollback que guarda o estado anterior de registro, serviços e arquivos — permitindo reverter com um clique.</p>
+  </header>
+
+  <h2>Como funciona</h2>
+  <p>Antes de cada mudança, o KT WIRZADE captura o valor atual e o guarda na sessão:</p>
+  <ul>
+    <li><strong>Registro</strong> — o valor anterior (e a chave, se for criada) é salvo antes da escrita.</li>
+    <li><strong>Serviços</strong> — estado e configuração exportados para um backup <code>.reg</code>.</li>
+    <li><strong>Arquivos</strong> — cópia de segurança antes de substituir ou remover.</li>
+  </ul>
+  <p>No final, a sessão fica listada no app. Para reverter: abra a sessão, confirme e acompanhe o log de restauração.</p>
+
+  <h2>O que é revertido</h2>
+  <table class="doc-table">
+    <thead><tr><th>Categoria</th><th>Revertido?</th><th>Como</th></tr></thead>
+    <tbody>
+      <tr><td>Tweaks de registro</td><td class="yes">Sim</td><td>Valores e chaves restaurados do snapshot anterior</td></tr>
+      <tr><td>Serviços</td><td class="yes">Sim</td><td>Restaurados do backup <code>.reg</code> (estado + config)</td></tr>
+      <tr><td>Arquivos do playbook</td><td class="yes">Sim</td><td>Restaurados da cópia de segurança</td></tr>
+      <tr><td>Apps removidos (debloat)</td><td class="no">Não</td><td>Reinstale pela Microsoft Store / winget</td></tr>
+      <tr><td>Limpeza de temporários</td><td class="no">Não</td><td>Arquivos apagados não são recriados</td></tr>
+      <tr><td>Comandos executados</td><td class="mid">Parcial</td><td>Efeitos colaterais de scripts podem persistir</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn"><i class="fas fa-triangle-exclamation"></i><div><b>Limites honestos:</b> rollback cobre o que o playbook declara como ações rastreáveis. Scripts arbitrários podem ter efeitos fora do escopo. Sempre mantenha um ponto de restauração do Windows.</div></div>
+
+  <h2>Sessões e limpeza</h2>
+  <ul>
+    <li>Cada aplicação gera uma <strong>sessão datada</strong> com o nome do playbook.</li>
+    <li>A limpeza automática remove sessões antigas conforme a retenção configurada.</li>
+    <li>Reverter uma sessão mais recente pode desfazer mudanças de sessões anteriores aplicadas sobre as mesmas chaves.</li>
+  </ul>
+
+  <h2>Boas práticas</h2>
+  <ol>
+    <li>Aplique <strong>um playbook por vez</strong> e teste entre eles.</li>
+    <li>Anote ou tire print das configurações críticas antes.</li>
+    <li>Se algo ficar estranho após reverter, reinicie antes de tentar novamente.</li>
+  </ol>
+
+  <nav class="pager">
+    <a href="/docs/instalar-playbooks"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Instalar playbooks</span></a>
+    <a class="next" href="/docs/modo-iso"><span class="dir">Próximo</span><span class="name">Modo ISO <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>

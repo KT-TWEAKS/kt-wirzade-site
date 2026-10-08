@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogDescription?: string;
+  themeColor?: string;
+  favicon?: string;
+}
+
+const {
+  title,
+  description = '',
+  ogDescription,
+  themeColor = '#0a0612',
+  favicon = 'img/logo-new.png',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title}</title>
+{description && <meta name="description" content={description}>}
+<slot name="meta" />
+<meta property="og:type" content="website">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={ogDescription ?? description}>
+<meta property="og:site_name" content="KT WIRZADE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content={themeColor}>
+<link rel="icon" href={favicon}>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<slot name="head" />
+</head>
+<body>
+<slot />
+</body>
+</html>

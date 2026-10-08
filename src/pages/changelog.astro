@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/home.css';
+import '../styles/changelog.css';
+---
+
+<BaseLayout title="Changelog — KT WIRZADE" description="Histórico oficial de versões, correções e melhorias do KT WIRZADE.">
+  <Fragment slot="meta">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kt-wirzade-site.vercel.app/changelog">
+  </Fragment>
+  <div class="changelog-bg" aria-hidden="true"></div>
+  <Nav />
+  <main class="changelog-main">
+    <header class="changelog-hero">
+      <div class="changelog-kicker"><i class="fas fa-clock-rotate-left"></i> HISTÓRICO OFICIAL</div>
+      <h1>Changelog</h1>
+      <p>Acompanhe cada versão pública do KT WIRZADE, com correções, melhorias e arquivos oficiais em um só lugar.</p>
+      <div class="version-summary"><span><b>Versão atual</b> 1.0.1</span><span><b>Publicado em</b> 07/09/2026</span><span><b>Plataforma</b> Windows 10/11 x64</span></div>
+    </header>
+
+    <section class="release-list" aria-label="Versões do KT WIRZADE">
+      <article class="release-card current">
+        <div class="release-rail"><span></span></div>
+        <div class="release-top">
+          <div><span class="status current-status">ATUAL</span><h2>KT WIRZADE 1.0.1</h2><time datetime="2026-09-07">07 de setembro de 2026</time></div>
+          <a class="download-release" href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/download/v1.0.1/KT-WIRZADE-v1.0.1-win-x64.exe"><i class="fas fa-download"></i> Baixar executável</a>
+        </div>
+        <p class="release-lead">Atualização de estabilidade, segurança, recuperação e interface. A distribuição oficial agora funciona como um único executável.</p>
+        <div class="change-grid">
+          <section><i class="fas fa-wand-magic-sparkles"></i><h3>Interface</h3><ul><li>Transparência e blur acrílico no Windows 10 e 11.</li><li>Contraste melhorado nos temas claro e escuro.</li><li>Fluxo de atualização e mensagens mais claros.</li></ul></section>
+          <section><i class="fas fa-box"></i><h3>Executável único</h3><ul><li>Dependências incorporadas ao arquivo oficial.</li><li>Preparação automática em pasta temporária privada.</li><li>Manifesto e SHA-256 publicados com a release.</li></ul></section>
+          <section><i class="fas fa-gears"></i><h3>Motor e downloads</h3><ul><li>Aliases YAML reconhecidos sem quebrar nomes anteriores.</li><li>Includes protegidos contra ciclos e caminhos externos.</li><li>Downloads atômicos, com validação de origem, tamanho e hash opcional.</li></ul></section>
+          <section><i class="fas fa-shield-halved"></i><h3>Rollback e segurança</h3><ul><li>Operações pendentes ficam visíveis e podem ser retomadas.</li><li>Sessões de rollback isoladas por execução.</li><li>IPC com segredo de 256 bits e comparação autenticada.</li></ul></section>
+        </div>
+        <div class="release-notice"><i class="fas fa-circle-info"></i><span>Quem usa a versão 1.0.0 deve atualizar manualmente, pois o atualizador antigo pode não interpretar corretamente a resposta do GitHub.</span></div>
+        <details class="checksum"><summary>Ver SHA-256 do executável</summary><code>cc9ba9ba6d89e92d2a01abb77be2ff0e48af5a47ac5dab1bf91bc8c0bf862787</code></details>
+      </article>
+
+      <article class="release-card">
+        <div class="release-rail"><span></span></div>
+        <div class="release-top">
+          <div><span class="status">VERSÃO INICIAL</span><h2>KT WIRZADE 1.0.0</h2><time datetime="2026-08-29">29 de agosto de 2026</time></div>
+          <a class="release-link" href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/tag/v1.0.0" target="_blank" rel="noopener"><i class="fab fa-github"></i> Ver release</a>
+        </div>
+        <p class="release-lead">Primeira versão pública estável do KT WIRZADE, com foco em playbooks, recuperação e uso em português.</p>
+        <div class="compact-changes"><span><i class="fas fa-check"></i> Motor de playbooks .apbx</span><span><i class="fas fa-check"></i> Rollback real com backup</span><span><i class="fas fa-check"></i> Modo ISO para Windows 10 e 11</span><span><i class="fas fa-check"></i> Interface em português e inglês</span><span><i class="fas fa-check"></i> IPC autenticado com HMAC-SHA256</span><span><i class="fas fa-check"></i> APBX Developer para análise</span></div>
+      </article>
+    </section>
+
+    <aside class="history-note"><i class="fas fa-code-branch"></i><div><strong>Cronologia clara</strong><p>Esta página lista somente versões públicas do KT WIRZADE. A documentação técnica da base herdada fica separada para não confundir o histórico oficial.</p></div><a href="/docs">Abrir documentação <i class="fas fa-arrow-right"></i></a></aside>
+  </main>
+  <Footer />
+</BaseLayout>
