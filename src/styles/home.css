@@ -284,3 +284,37 @@ button { font: inherit; }
 .platinum-grid-overlay { z-index: 0; opacity: .28; background-image: linear-gradient(rgba(170,145,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(86,217,232,.07) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(ellipse at center, #000 0%, transparent 72%); }
 .ambient-scene { opacity: 0 !important; }
 @media (prefers-reduced-motion: reduce) { .platinum-webgl { opacity: .75; } }
+
+/* Correção visual final: a seção de decisão integra o mesmo fundo WebGL do site,
+   enquanto a navegação usa o vidro líquido mais profundo do Platinum+. */
+.dark-section {
+  background: transparent !important;
+}
+
+.site-nav {
+  background: rgba(12, 12, 20, .48);
+  backdrop-filter: blur(55px) saturate(190%);
+  -webkit-backdrop-filter: blur(55px) saturate(190%);
+  border-color: rgba(255, 255, 255, .16);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, .85), 0 0 0 1px rgba(255, 255, 255, .05), inset 0 1px rgba(255, 255, 255, .12);
+}
+
+.site-nav.solid {
+  background: rgba(12, 12, 20, .58);
+  backdrop-filter: blur(55px) saturate(190%);
+  -webkit-backdrop-filter: blur(55px) saturate(190%);
+}
+
+.nav-links {
+  background: rgba(255, 255, 255, .055);
+  backdrop-filter: blur(26px) saturate(180%);
+  -webkit-backdrop-filter: blur(26px) saturate(180%);
+}
+
+@media (max-width: 720px) {
+  .nav-links {
+    background: rgba(10, 12, 24, .58);
+    backdrop-filter: blur(35px) saturate(180%);
+    -webkit-backdrop-filter: blur(35px) saturate(180%);
+  }
+}
