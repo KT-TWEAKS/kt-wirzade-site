@@ -218,3 +218,19 @@ button { font: inherit; }
 .nav-progress { right: 16px; left: 16px; bottom: 0; z-index: 2; border-radius: 999px; background: linear-gradient(90deg, var(--violet), var(--cyan), var(--green)); box-shadow: 0 0 12px rgba(86,217,232,.6); }
 @media (max-width: 720px) { .site-nav { top: 9px; width: calc(100% - 24px); border-radius: 16px; }.site-nav.solid { top: 7px; }.nav-in { height: 62px; padding: 0 9px; }.nav-links { top: 70px; right: 0; left: 0; padding: 10px; border-color: rgba(155,123,255,.25); background: rgba(10,12,24,.9); backdrop-filter: blur(24px); }.nav-links a:not(.nav-cta) { padding: 13px 12px; }.nav-toggle { position: relative; z-index: 2; display: grid; place-items: center; border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.07); }.ambient-grid { opacity: .14; }.ambient-orb { filter: blur(35px); transform: scale(.72); } }
 @media (prefers-reduced-motion: reduce) { .ambient-grid, .ambient-orb, .ambient-star { animation: none; } }
+
+/* Ajuste de linguagem: fundo mais próximo da referência, menos decorativo */
+.site-page { background: radial-gradient(ellipse at 37% 34%, rgba(119,77,184,.17), transparent 29rem), radial-gradient(ellipse at 72% 38%, rgba(24,139,157,.1), transparent 25rem), #07080c; }
+.site-page::before { opacity: .45; filter: blur(28px); }
+.ambient-scene { opacity: .72; }
+.ambient-grid { inset: 92px 15% auto; height: min(700px, 74vh); transform: none; background-size: 48px 48px; opacity: .42; mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 76%, transparent 100%), linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent); mask-composite: intersect; animation-duration: 46s; }
+.ambient-scanline, .ambient-star { display: none; }
+.ambient-orb { filter: blur(90px); opacity: .5; }
+.ambient-orb-one { top: 17%; left: 15%; width: 350px; height: 430px; background: rgba(111,75,177,.24); animation-duration: 26s; }
+.ambient-orb-two { top: 15%; right: 12%; width: 300px; height: 470px; background: rgba(34,147,164,.13); animation-duration: 31s; }
+.ambient-orb-three { bottom: 4%; left: 39%; width: 300px; height: 250px; background: rgba(86,97,188,.1); animation-duration: 34s; }
+.hero::before { content: ''; position: absolute; inset: 110px -14% 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at 34% 44%, rgba(130,77,180,.16), transparent 30%), radial-gradient(ellipse at 72% 42%, rgba(23,136,152,.08), transparent 27%); }
+.hero-gridline { inset: 80px -8% 0; opacity: .28; background-size: 64px 64px; mask-image: linear-gradient(to bottom, transparent, #000 21%, #000 72%, transparent); }
+.visual-orbit { opacity: .3; }
+.app-window { box-shadow: 0 35px 90px rgba(0,0,0,.6), 0 0 70px rgba(113,75,177,.1); }
+@media (prefers-reduced-motion: reduce) { .ambient-grid { animation: none; } }
