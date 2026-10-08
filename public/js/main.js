@@ -648,6 +648,17 @@
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var finePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
   if (!reduceMotion && finePointer) {
+    var ambientScene = document.querySelector(".site-page");
+    if (ambientScene) {
+      ambientScene.addEventListener("pointermove", function (event) {
+        var px = Math.round((event.clientX / window.innerWidth) * 100);
+        var py = Math.round((event.clientY / window.innerHeight) * 100);
+        ambientScene.style.setProperty("--pointer-x", px + "%");
+        ambientScene.style.setProperty("--pointer-y", py + "%");
+        ambientScene.style.setProperty("--orb-x", ((px - 50) * 0.18) + "px");
+        ambientScene.style.setProperty("--orb-y", ((py - 50) * 0.12) + "px");
+      }, { passive: true });
+    }
     document.querySelectorAll("[data-spotlight]").forEach(function (card) {
       card.addEventListener("pointermove", function (event) {
         var rect = card.getBoundingClientRect();
