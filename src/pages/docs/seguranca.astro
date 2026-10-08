@@ -15,13 +15,13 @@ import DocsLayout from '../../layouts/DocsLayout.astro';
 
   <h2>Por que o antivírus acusa?</h2>
   <p>Playbooks alteram <strong>registro, serviços e arquivos do sistema</strong>. Para um antivírus, esse comportamento é idêntico ao de malware (persistência, modificação de configuração). Por isso o alerta é genérico: ele não sabe a intenção — só o comportamento.</p>
-  <div class="callout info"><i class="fas fa-circle-info"></i><div><b>Um alerta isolado não determina a intenção do arquivo.</b> Use o hash, a procedência e a análise das ações em conjunto.</div></div>
+  <div class="callout info"><i class="fas fa-circle-info"></i><div><b>Um alerta isolado não determina a intenção do arquivo.</b> Use o hash, a procedência e a análise das ações em conjunto. O <a href="/docs/fluxo-apbx">fluxo APBX</a> mostra onde cada conferência entra.</div></div>
 
   <h2>Camadas de verificação</h2>
   <table class="doc-table">
     <thead><tr><th>Camada</th><th>Proteção</th></tr></thead>
     <tbody>
-      <tr><td>Integridade</td><td>Hash SHA-256 verificado no playbook antes de aplicar</td></tr>
+      <tr><td>Integridade</td><td>Hash SHA-256 conferido no arquivo baixado antes de aplicar</td></tr>
       <tr><td>Auditoria</td><td>O catálogo APBX publica contagens, riscos e builds detectadas durante a análise</td></tr>
       <tr><td>Rastreabilidade</td><td>Log detalhado de cada ação executada</td></tr>
       <tr><td>Reversão</td><td><a href="/docs/rollback">Rollback</a> com backup prévio para as ações suportadas</td></tr>

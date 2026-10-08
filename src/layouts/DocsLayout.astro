@@ -35,6 +35,7 @@ const { title, description, page } = Astro.props;
       <ul>
         <li><a class="nav-link" data-nav="index" href="/docs"><i class="fas fa-home"></i> Visão geral</a></li>
         <li><a class="nav-link" data-nav="instalar" href="/docs/instalar-playbooks"><i class="fas fa-rocket"></i> Instalar playbooks</a></li>
+        <li><a class="nav-link" data-nav="fluxo" href="/docs/fluxo-apbx"><i class="fas fa-route"></i> Fluxo APBX</a></li>
         <li><a class="nav-link" data-nav="changelog" href="/changelog"><i class="fas fa-list"></i> Changelog do produto</a></li>
       </ul>
     </div>
@@ -43,6 +44,7 @@ const { title, description, page } = Astro.props;
       <ul>
         <li><a class="nav-link" data-nav="rollback" href="/docs/rollback"><i class="fas fa-rotate-left"></i> Rollback</a></li>
         <li><a class="nav-link" data-nav="iso" href="/docs/modo-iso"><i class="fas fa-compact-disc"></i> Modo ISO</a></li>
+        <li><a class="nav-link" data-nav="apbx" href="/docs/apbx-developer"><i class="fas fa-code"></i> APBX Developer</a></li>
       </ul>
     </div>
     <div class="nav-group">
@@ -58,7 +60,7 @@ const { title, description, page } = Astro.props;
 <main class="content">
 <slot />
   <footer class="doc-foot">
-    <span>KT WIRZADE · kelvenapk / KT TWEAKS — fork independente, não afiliado à Ameliorated.</span>
+    <span>KT WIRZADE · KT TWEAKS — documentação pública do produto.</span>
     <span>Windows é marca da Microsoft.</span>
   </footer>
 </main>
@@ -120,6 +122,40 @@ const { title, description, page } = Astro.props;
       }
     });
   });
+
+  // Tabs do fluxo público APBX → KT WIRZADE
+  var flowTabs = document.querySelectorAll("[data-flow-tab]");
+  var flowTabPanels = document.querySelectorAll("[data-flow-panel]");
+  if (flowTabs.length && flowTabPanels.length) {
+    function activateFlowTab(index, moveFocus) {
+      var next = Math.max(0, Math.min(index, flowTabs.length - 1));
+      flowTabs.forEach(function (tab, tabIndex) {
+        var active = tabIndex === next;
+        tab.classList.toggle("active", active);
+        tab.setAttribute("aria-selected", active ? "true" : "false");
+        tab.setAttribute("tabindex", active ? "0" : "-1");
+      });
+      flowTabPanels.forEach(function (panel, panelIndex) {
+        panel.hidden = panelIndex !== next;
+      });
+      if (moveFocus) flowTabs[next].focus();
+    }
+    flowTabs.forEach(function (tab, index) {
+      tab.addEventListener("click", function () { activateFlowTab(index, false); });
+      tab.addEventListener("keydown", function (event) {
+        var next = index;
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") next += 1;
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") next -= 1;
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = flowTabs.length - 1;
+        if (next !== index) {
+          event.preventDefault();
+          activateFlowTab(next < 0 ? flowTabs.length - 1 : next >= flowTabs.length ? 0 : next, true);
+        }
+      });
+    });
+    activateFlowTab(0, false);
+  }
 
   // Reveal suave nos headings
   if ("IntersectionObserver" in window) {

@@ -171,3 +171,13 @@ kbd{font-family:var(--fm);font-size:.82em;background:#1a1420;border:1px solid va
   .content{padding:28px 22px 80px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Fluxo público APBX → KT WIRZADE */
+.flow-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:22px 0 10px}
+.flow-tab{min-height:82px;padding:12px;text-align:left;border:1px solid var(--bdr2);border-radius:11px;background:rgba(255,255,255,.025);color:var(--t2);cursor:pointer;font:inherit;transition:var(--ts)}
+.flow-tab:hover,.flow-tab:focus-visible{border-color:rgba(139,92,246,.45);color:#fff;outline:none;transform:translateY(-2px)}
+.flow-tab.active{border-color:rgba(139,92,246,.65);background:linear-gradient(145deg,rgba(139,92,246,.2),rgba(96,165,250,.06));color:#fff;box-shadow:0 12px 30px rgba(68,35,130,.18)}
+.flow-tab small{display:block;font:10px var(--fm);color:var(--p);margin-bottom:9px}.flow-tab strong{display:block;font-size:13px}
+.flow-panel-shell{border:1px solid var(--bdr2);border-radius:14px;background:rgba(20,10,15,.72);padding:24px;margin-bottom:20px;min-height:170px}
+.flow-panel[hidden]{display:none}.flow-panel .panel-label{font:10px var(--fm);letter-spacing:.13em;color:var(--bl)}.flow-panel h3{font-family:var(--fd);font-weight:400;font-size:24px;letter-spacing:1px;margin:10px 0 8px}.flow-panel p{max-width:670px}.flow-panel-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}.flow-panel-actions a{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--bdr2);border-radius:9px;background:rgba(139,92,246,.08);font-size:12px;font-weight:700}.flow-panel-actions a:hover{border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.16)}
+@media(max-width:680px){.flow-tabs{grid-template-columns:1fr 1fr}.flow-tab{min-height:70px}.flow-panel-shell{padding:18px}}
