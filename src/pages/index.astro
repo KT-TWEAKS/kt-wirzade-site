@@ -54,7 +54,7 @@ const capabilities = [
       <section class="hero" id="top">
         <div class="hero-gridline" aria-hidden="true"></div>
         <div class="hero-copy" data-reveal="left">
-          <p class="eyebrow"><i></i> WINDOWS TOOLKIT / VERSÃO PÚBLICA 1.0.1</p>
+          <p class="eyebrow"><i></i><strong class="eyebrow-brand">KT WIRZADE</strong><span>WINDOWS WIRZADE / VERSÃO PÚBLICA 1.0.1</span></p>
           <h1>Seu Windows.<br /><em>Mais claro.</em><br />Mais reversível.</h1>
           <p class="hero-lead">O KT WIRZADE transforma ajustes de sistema em um fluxo que você consegue ler, revisar e recuperar. Sem caixa-preta: cada etapa tem contexto, requisito e histórico.</p>
           <div class="hero-actions">
@@ -113,7 +113,7 @@ const capabilities = [
 
       <section class="section apbx-section" id="playbooks">
         <div class="apbx-copy" data-reveal="left"><p class="kicker">APBX / 05</p><h2>Playbooks que você consegue abrir antes de executar.</h2><p>O formato APBX concentra a intenção de cada alteração em um pacote auditável. Use o catálogo público para descobrir versões e o KT WIRZADE para revisar e aplicar no computador.</p><div class="apbx-actions"><a class="button button-primary" href="https://kt-tweaks-apbx.vercel.app" target="_blank" rel="noopener">Abrir catálogo APBX <span>↗</span></a><a class="text-link" href="/docs/apbx-developer">Ler sobre APBX <i class="fas fa-arrow-right"></i></a></div></div>
-        <div class="code-card" data-reveal="right"><div class="code-top"><span><i></i><i></i><i></i></span><small>playbook.yml</small><b>APBX / REVIEW</b></div><pre><code><span class="code-comment"># uma alteração explícita e revisável</span>
+         <div class="code-card" data-reveal="right"><div class="code-top"><span><i></i><i></i><i></i></span><small>playbook.apbx</small><b><i class="fas fa-circle-check"></i> APBX / REVIEW</b></div><pre><code><span class="code-comment"># uma alteração explícita e revisável</span>
 <span class="code-key">-</span> <span class="code-fn">!registryValue</span>:
     <span class="code-prop">path</span>: <span class="code-string">HKLM\\Software\\Policies</span>
     <span class="code-prop">value</span>: <span class="code-string">AllowTelemetry</span>
@@ -121,12 +121,20 @@ const capabilities = [
     <span class="code-prop">type</span>: <span class="code-string">REG_DWORD</span>
 <span class="code-key">-</span> <span class="code-fn">!service</span>:
     <span class="code-prop">name</span>: <span class="code-string">DiagTrack</span>
-    <span class="code-prop">operation</span>: <span class="code-string">disable</span></code></pre><div class="code-foot"><span><i></i> parser ready</span><span>SHA-256 / checked</span></div></div>
+ <span class="code-prop">operation</span>: <span class="code-string">disable</span></code></pre><div class="code-foot"><span><i></i> schema válido</span><span><i class="fas fa-eye"></i> 2 operações · somente leitura</span><span>SHA-256 / checked</span></div></div>
       </section>
 
       <section class="section documentation-section" id="documentacao"><div class="doc-card" data-reveal data-spotlight><div><p class="kicker">GUIA / 06</p><h2>Não aplique no escuro.</h2><p>Veja o fluxo público APBX → WIRZADE, instalação, limites de rollback, modo ISO, segurança, perguntas frequentes e desenvolvimento.</p></div><div class="doc-links"><a href="/docs/fluxo-apbx"><span>01</span> Fluxo APBX <i class="fas fa-arrow-right"></i></a><a href="/docs"><span>02</span> Visão geral <i class="fas fa-arrow-right"></i></a><a href="/docs/seguranca"><span>03</span> Segurança <i class="fas fa-arrow-right"></i></a><a href="/docs/developer"><span>04</span> Guia developer <i class="fas fa-arrow-right"></i></a></div></div></section>
 
-      <section class="download-band" id="download" data-reveal><div><p class="kicker">RELEASE PÚBLICA / 1.0.1</p><h2>Seu sistema continua sendo seu.</h2><p>Baixe pela release oficial, confira a origem e leia o playbook antes de executar.</p></div><a class="button button-dark" href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/download/v1.0.1/KT-WIRZADE-v1.0.1-win-x64.exe" target="_blank" rel="noopener">Baixar para Windows <span>↗</span></a></section>
+       <section class="download-band" id="download" data-reveal><div><p class="kicker">RELEASE PÚBLICA / 1.0.1</p><h2>Seu sistema continua sendo seu.</h2><p>Baixe pela release oficial, confira a origem e leia o playbook antes de executar.</p></div><a class="button button-dark" href="https://github.com/KT-TWEAKS/KT-WIRZADE/releases/download/v1.0.1/KT-WIRZADE-v1.0.1-win-x64.exe" target="_blank" rel="noopener">Baixar para Windows <span>↗</span></a></section>
+
+       <section class="section transparency-section" id="transparencia">
+         <div class="section-heading" data-reveal="left"><p class="kicker">TRANSPARÊNCIA / 07</p><h2>O que mudou.<br /><em>O que você aceita.</em></h2><p>Changelog e termos de uso agora ficam visíveis na própria página do KT WIRZADE, no mesmo fluxo do produto e sem esconder decisões importantes em caminhos separados.</p><div class="transparency-actions"><a class="text-link" href="#changelog">Ver novidades <i class="fas fa-arrow-down"></i></a><a class="text-link" href="#termos">Ler os termos <i class="fas fa-arrow-down"></i></a></div></div>
+         <div class="transparency-grid">
+           <article class="transparency-card" id="changelog" data-reveal data-spotlight><div class="transparency-card-top"><span class="kicker"><i class="fas fa-clock-rotate-left"></i> HISTÓRICO</span><span class="transparency-status">1.0.1 / ATUAL</span></div><h3>Changelog do KT WIRZADE</h3><p>Uma visão rápida das mudanças públicas, antes de abrir o histórico completo.</p><ul><li><i class="fas fa-check"></i> estabilidade do fluxo APBX e da execução local</li><li><i class="fas fa-check"></i> interface com leitura, progresso e recuperação</li><li><i class="fas fa-check"></i> release oficial com verificação de origem</li></ul><a class="text-link" href="/changelog">Abrir changelog completo <i class="fas fa-arrow-right"></i></a></article>
+           <article class="transparency-card legal" id="termos" data-reveal data-spotlight><div class="transparency-card-top"><span class="kicker"><i class="fas fa-scale-balanced"></i> USO RESPONSÁVEL</span><span class="transparency-status">LEIA ANTES</span></div><h3>Termos e limites</h3><p>O app mostra o que será feito, mas toda alteração de sistema exige revisão, backup e decisão consciente.</p><ul><li><i class="fas fa-check"></i> você confirma cada playbook antes da aplicação</li><li><i class="fas fa-check"></i> rollback depende do tipo de operação e do snapshot</li><li><i class="fas fa-check"></i> releases verificadas não substituem sua análise local</li></ul><a class="text-link" href="/docs/termos">Ler termos completos <i class="fas fa-arrow-right"></i></a></article>
+         </div>
+       </section>
     </main>
     <Footer />
   </div>
