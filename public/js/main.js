@@ -627,4 +627,35 @@
     changelogItems.forEach(function (item) { cIO.observe(item); });
   }
 
+  /* ----------------------------------------------------------
+     19. PREMIUM MICROINTERACTIONS
+     Cursor spotlight + tilt only when motion and pointer allow.
+     ---------------------------------------------------------- */
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
+  if (!reduceMotion && finePointer) {
+    document.querySelectorAll("[data-spotlight]").forEach(function (card) {
+      card.addEventListener("pointermove", function (event) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (event.clientX - rect.left) + "px");
+        card.style.setProperty("--my", (event.clientY - rect.top) + "px");
+      });
+      card.addEventListener("pointerleave", function () {
+        card.style.setProperty("--mx", "50%");
+        card.style.setProperty("--my", "50%");
+      });
+    });
+
+    var tiltCard = document.querySelector("[data-tilt]");
+    if (tiltCard) {
+      tiltCard.addEventListener("pointermove", function (event) {
+        var rect = tiltCard.getBoundingClientRect();
+        var x = (event.clientX - rect.left) / rect.width - 0.5;
+        var y = (event.clientY - rect.top) / rect.height - 0.5;
+        tiltCard.style.transform = "perspective(1200px) rotateY(" + (x * 7) + "deg) rotateX(" + (-y * 6) + "deg)";
+      });
+      tiltCard.addEventListener("pointerleave", function () { tiltCard.style.transform = ""; });
+    }
+  }
+
 })();
