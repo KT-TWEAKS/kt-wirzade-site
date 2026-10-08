@@ -318,3 +318,29 @@ button { font: inherit; }
     -webkit-backdrop-filter: blur(35px) saturate(180%);
   }
 }
+
+/* Evita que a mensagem do checkpoint force ou corte o layout em telas estreitas. */
+.flow-interactive,
+.flow-console-body,
+.flow-console .flow-board,
+.flow-detail,
+.flow-panel,
+.flow-step-copy {
+  min-width: 0;
+}
+
+.flow-console .flow-panel strong {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.flow-panel-foot {
+  flex-wrap: wrap;
+}
+
+.flow-panel-foot > span,
+.flow-panel-foot > a {
+  min-width: 0;
+  max-width: 100%;
+}
