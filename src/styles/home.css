@@ -223,14 +223,17 @@ button { font: inherit; }
 .site-page { background: radial-gradient(ellipse at 37% 34%, rgba(119,77,184,.17), transparent 29rem), radial-gradient(ellipse at 72% 38%, rgba(24,139,157,.1), transparent 25rem), #07080c; }
 .site-page::before { opacity: .45; filter: blur(28px); }
 .ambient-scene { opacity: .72; }
+.ambient-scene::before { content: ''; position: absolute; inset: -18%; background: radial-gradient(ellipse 34% 58% at 31% 39%, rgba(127,76,185,.32), transparent 72%), radial-gradient(ellipse 28% 55% at 72% 39%, rgba(29,145,165,.16), transparent 72%); filter: blur(20px); opacity: .95; animation: reference-glow 18s ease-in-out infinite alternate; }
+.ambient-scene::after { content: ''; position: absolute; inset: 70px 9% 0; opacity: .2; background-image: linear-gradient(rgba(169,137,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(86,217,232,.09) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 70%, transparent); }
+@keyframes reference-glow { from { transform: translate3d(-1%, 0, 0) scale(1); } to { transform: translate3d(2%, 1%, 0) scale(1.07); } }
 .ambient-grid { inset: 92px 15% auto; height: min(700px, 74vh); transform: none; background-size: 48px 48px; opacity: .42; mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 76%, transparent 100%), linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent); mask-composite: intersect; animation-duration: 46s; }
 .ambient-scanline, .ambient-star { display: none; }
 .ambient-orb { filter: blur(90px); opacity: .5; }
 .ambient-orb-one { top: 17%; left: 15%; width: 350px; height: 430px; background: rgba(111,75,177,.24); animation-duration: 26s; }
 .ambient-orb-two { top: 15%; right: 12%; width: 300px; height: 470px; background: rgba(34,147,164,.13); animation-duration: 31s; }
 .ambient-orb-three { bottom: 4%; left: 39%; width: 300px; height: 250px; background: rgba(86,97,188,.1); animation-duration: 34s; }
-.hero::before { content: ''; position: absolute; inset: 110px -14% 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at 34% 44%, rgba(130,77,180,.16), transparent 30%), radial-gradient(ellipse at 72% 42%, rgba(23,136,152,.08), transparent 27%); }
-.hero-gridline { inset: 80px -8% 0; opacity: .28; background-size: 64px 64px; mask-image: linear-gradient(to bottom, transparent, #000 21%, #000 72%, transparent); }
+.hero::before { content: ''; position: absolute; inset: 76px -16% -6%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at 32% 43%, rgba(130,77,180,.27), transparent 34%), radial-gradient(ellipse at 73% 43%, rgba(23,136,152,.14), transparent 31%); }
+.hero-gridline { inset: 80px -8% 0; opacity: .38; background-size: 64px 64px; mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 78%, transparent); }
 .visual-orbit { opacity: .3; }
 .app-window { box-shadow: 0 35px 90px rgba(0,0,0,.6), 0 0 70px rgba(113,75,177,.1); }
-@media (prefers-reduced-motion: reduce) { .ambient-grid { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .ambient-grid, .ambient-scene::before { animation: none; } }
