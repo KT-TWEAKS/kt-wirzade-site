@@ -12,11 +12,25 @@
   function initPlatinumBackground() {
     var canvas = document.getElementById("platinum-webgl");
     if (!canvas) return;
-    var gl = canvas.getContext("webgl", { alpha: false, antialias: false });
-    if (!gl) return;
+    function useFallback() {
+      document.body.classList.add("platinum-fallback");
+      canvas.setAttribute("data-fallback", "true");
+    }
+    var gl = null;
+    try {
+      gl = canvas.getContext("webgl", { alpha: false, antialias: false }) ||
+        canvas.getContext("experimental-webgl", { alpha: false, antialias: false });
+    } catch (error) {
+      useFallback();
+      return;
+    }
+    if (!gl) {
+      useFallback();
+      return;
+    }
 
     var vertex = "attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }";
-    var fragment = "precision highp float;\n" +
+    var fragment = "precision mediump float;\n" +
       "uniform vec2 u_res; uniform float u_time;\n" +
       "vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}\n" +
       "vec2 mod289(vec2 x){return x-floor(x*(1.0/289.0))*289.0;}\n" +
@@ -37,12 +51,22 @@
 
     var vert = compile(gl.VERTEX_SHADER, vertex);
     var frag = compile(gl.FRAGMENT_SHADER, fragment);
-    if (!vert || !frag) return;
+    if (!vert || !frag) {
+      useFallback();
+      return;
+    }
     var program = gl.createProgram();
+    if (!program) {
+      useFallback();
+      return;
+    }
     gl.attachShader(program, vert);
     gl.attachShader(program, frag);
     gl.linkProgram(program);
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) return;
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      useFallback();
+      return;
+    }
     gl.useProgram(program);
 
     var buffer = gl.createBuffer();
@@ -53,7 +77,16 @@
     gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
     var resolution = gl.getUniformLocation(program, "u_res");
     var time = gl.getUniformLocation(program, "u_time");
+    if (!resolution || !time) {
+      useFallback();
+      return;
+    }
     var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var raf = window.requestAnimationFrame ? window.requestAnimationFrame.bind(window) : function (callback) {
+      return window.setTimeout(function () { callback(Date.now()); }, 1000 / 30);
+    };
+    var caf = window.cancelAnimationFrame ? window.cancelAnimationFrame.bind(window) : window.clearTimeout.bind(window);
+    var frameId = 0;
 
     function resize() {
       var ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -65,11 +98,16 @@
       gl.uniform2f(resolution, canvas.width, canvas.height);
       gl.uniform1f(time, reduced ? 0 : now * 0.001);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      if (!reduced) window.requestAnimationFrame(frame);
+      if (!reduced) frameId = raf(frame);
     }
+    canvas.addEventListener("webglcontextlost", function (event) {
+      event.preventDefault();
+      caf(frameId);
+      useFallback();
+    }, { passive: false });
     resize();
     window.addEventListener("resize", resize, { passive: true });
-    window.requestAnimationFrame(frame);
+    frameId = raf(frame);
   }
 
   initPlatinumBackground();
