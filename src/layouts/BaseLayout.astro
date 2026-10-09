@@ -12,8 +12,10 @@ const {
   description = '',
   ogDescription,
   themeColor = '#0a0612',
-  favicon = 'img/logo-new.png',
+  favicon = '/img/logo-new.png',
 } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://kt-wirzade-site.vercel.app').toString();
+const socialImage = 'https://kt-wirzade-site.vercel.app/img/kt-wirzade-1.0.1.png';
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -27,9 +29,17 @@ const {
 <meta property="og:title" content={title}>
 <meta property="og:description" content={ogDescription ?? description}>
 <meta property="og:site_name" content="KT WIRZADE">
+<meta property="og:url" content={canonicalUrl}>
+<meta property="og:image" content={socialImage}>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={ogDescription ?? description}>
+<meta name="twitter:image" content={socialImage}>
 <meta name="theme-color" content={themeColor}>
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href={canonicalUrl}>
 <link rel="icon" href={favicon}>
+<link rel="apple-touch-icon" href="/img/logo-purple-star.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
@@ -37,6 +47,7 @@ const {
 <slot name="head" />
 </head>
 <body>
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 <slot />
 </body>
 </html>

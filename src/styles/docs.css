@@ -195,3 +195,11 @@ kbd{font-family:var(--fm);font-size:.82em;background:#1a1420;border:1px solid va
 .flow-tab-panel{margin:18px 0 24px;padding:24px;border:1px solid var(--bdr2);border-radius:14px;background:rgba(20,10,15,.68);animation:panel-in .35s ease both}.flow-tab-panel[hidden]{display:none}.flow-tab-panel h2{margin-bottom:8px}.flow-tab-panel>p{max-width:760px}.flow-tab-panel h3{font-size:15px}@keyframes panel-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 30px}.terms-grid article{padding:18px;border:1px solid var(--bdr2);border-radius:12px;background:rgba(255,255,255,.025);transition:var(--ts)}.terms-grid article:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.45);background:rgba(139,92,246,.07)}.terms-grid i{color:var(--p);font-size:19px}.terms-grid h3{margin:10px 0 4px;font-size:15px}.terms-grid p{font-size:12px}.limits-list{display:grid;gap:10px;margin:18px 0 30px;padding:0;list-style:none}.limits-list li{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1px solid rgba(239,68,68,.16);border-radius:10px;background:rgba(239,68,68,.035);color:var(--t2);font-size:13px}.limits-list i{margin-top:5px;color:var(--rd);font-size:12px}
 @media(max-width:680px){.faq-toolbar{align-items:stretch;flex-direction:column}.profile-grid,.dev-grid,.dev-security-grid{grid-template-columns:1fr}.profile-card{padding:12px}.dev-pipeline{justify-content:flex-start}.dev-steps li{grid-template-columns:1fr;gap:4px}}
+
+/* Final polish: accessibility and consistent input feedback. */
+:root{color-scheme:dark}
+body{text-rendering:optimizeLegibility;-webkit-tap-highlight-color:transparent}
+.content:focus{outline:none}
+.skip-link{position:fixed;top:8px;left:12px;z-index:1000;padding:10px 14px;border:1px solid rgba(96,165,250,.65);border-radius:9px;color:#fff;background:#120d1e;box-shadow:0 12px 34px rgba(0,0,0,.45);font:700 11px/1 var(--fm);transform:translateY(-150%);transition:transform .18s ease}
+.skip-link:focus{transform:translateY(0);outline:none}
+:where(a,button,input,summary):focus-visible{outline:2px solid var(--bl);outline-offset:3px}

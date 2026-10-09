@@ -87,27 +87,45 @@
     };
     var caf = window.cancelAnimationFrame ? window.cancelAnimationFrame.bind(window) : window.clearTimeout.bind(window);
     var frameId = 0;
+    var elapsed = 0;
+    var lastFrame = 0;
 
     function resize() {
-      var ratio = Math.min(window.devicePixelRatio || 1, 2);
+      var ratioLimit = window.innerWidth <= 768 ? 1.35 : 1.75;
+      var ratio = Math.min(window.devicePixelRatio || 1, ratioLimit);
       canvas.width = Math.max(1, Math.floor(window.innerWidth * ratio));
       canvas.height = Math.max(1, Math.floor(window.innerHeight * ratio));
       gl.viewport(0, 0, canvas.width, canvas.height);
     }
     function frame(now) {
+      if (!lastFrame) lastFrame = now;
+      elapsed += Math.min(now - lastFrame, 50);
+      lastFrame = now;
       gl.uniform2f(resolution, canvas.width, canvas.height);
-      gl.uniform1f(time, reduced ? 0 : now * 0.001);
+      gl.uniform1f(time, reduced ? 0 : elapsed * 0.001);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       if (!reduced) frameId = raf(frame);
     }
+    function stop() {
+      if (frameId) caf(frameId);
+      frameId = 0;
+      lastFrame = 0;
+    }
+    function start() {
+      if (!frameId) frameId = raf(frame);
+    }
     canvas.addEventListener("webglcontextlost", function (event) {
       event.preventDefault();
-      caf(frameId);
+      stop();
       useFallback();
     }, { passive: false });
     resize();
     window.addEventListener("resize", resize, { passive: true });
-    frameId = raf(frame);
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop();
+      else start();
+    });
+    if (!document.hidden) start();
   }
 
   initPlatinumBackground();
@@ -135,32 +153,12 @@
   /* ----------------------------------------------------------
      2. NAVBAR SCROLL EFFECT
      Add class 'solid' to #nav when scroll > 50px for blur effect.
-     Also update scroll progress bar width.
+     The native nav progress element is updated further below.
      ---------------------------------------------------------- */
   var nav = document.getElementById("nav") || document.querySelector(".nav");
-  var progressContainer = null;
-  var progressBar = null;
-
-  function createProgressBar() {
-    progressContainer = document.createElement("div");
-    progressContainer.style.cssText =
-      "position:fixed;top:0;left:0;right:0;height:2px;z-index:101;" +
-      "background:rgba(42,32,48,.4);pointer-events:none;opacity:0;" +
-      "transition:opacity .3s ease;";
-    progressBar = document.createElement("div");
-    progressBar.style.cssText =
-      "height:100%;width:0;background:linear-gradient(90deg,#dc2626,#ef4444);" +
-      "border-radius:0 2px 2px 0;transition:width .1s linear;";
-    progressContainer.appendChild(progressBar);
-    document.body.appendChild(progressContainer);
-  }
-
-  createProgressBar();
 
   function onNavbarScroll() {
     var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
 
     if (nav) {
       if (scrollY > 50) {
@@ -168,11 +166,6 @@
       } else {
         nav.classList.remove("solid");
       }
-    }
-
-    if (progressBar && progressContainer) {
-      progressBar.style.width = scrollPercent + "%";
-      progressContainer.style.opacity = scrollY > 10 ? "1" : "0";
     }
   }
 
@@ -186,13 +179,15 @@
   var burger = document.getElementById("burger");
   var navlinks = document.getElementById("navlinks");
 
-  /* Tailwind usa a classe "hidden" (display:none) para esconder o menu em
-     desktop; ela sobrevive no mobile, entao o toggle precisa remove-la
-     manualmente para o dropdown aparecer. */
   function setMenuOpen(open) {
     navlinks.classList.toggle("open", open);
-    navlinks.classList.toggle("hidden", !open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    var icon = burger.querySelector("i");
+    if (icon) {
+      icon.classList.toggle("fa-bars", !open);
+      icon.classList.toggle("fa-xmark", open);
+    }
   }
 
   if (burger && navlinks) {
@@ -216,6 +211,19 @@
         setMenuOpen(false);
       }
     });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && navlinks.classList.contains("open")) {
+        setMenuOpen(false);
+        burger.focus();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 720 && navlinks.classList.contains("open")) {
+        setMenuOpen(false);
+      }
+    }, { passive: true });
   }
 
   /* ----------------------------------------------------------

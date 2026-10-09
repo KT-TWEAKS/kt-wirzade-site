@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { title, description, page } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, 'https://kt-wirzade-site.vercel.app').toString();
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -16,15 +17,25 @@ const { title, description, page } = Astro.props;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content={description}>
+<meta name="theme-color" content="#090a10">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="KT WIRZADE">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonicalUrl}>
+<link rel="canonical" href={canonicalUrl}>
 <link rel="icon" href="/img/logo-purple-star.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body data-page={page}>
 
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
 <a class="site-banner" href="/"><i class="fas fa-arrow-left"></i> Voltar ao site principal <span>· KT WIRZADE — molde o Windows do seu jeito</span></a>
 
 <div class="layout">
-<aside class="sidebar">
+<aside class="sidebar" id="docs-sidebar">
   <div class="brand">
     <div class="brand-badge">KW</div>
     <div><div class="brand-name">KT WIRZADE</div><div class="brand-sub">Documentação · v1.0.1</div></div>
@@ -64,7 +75,7 @@ const { title, description, page } = Astro.props;
   </nav>
 </aside>
 
-<main class="content">
+<main class="content" id="main-content" tabindex="-1">
 <slot />
   <footer class="doc-foot">
     <span>KT WIRZADE · KT TWEAKS — documentação pública do produto.</span>
@@ -73,7 +84,7 @@ const { title, description, page } = Astro.props;
 </main>
 </div>
 
-<button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+<button class="menu-toggle" type="button" aria-label="Abrir menu da documentação" aria-controls="docs-sidebar" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
 <script is:inline>
 /* KT WIRZADE Docs públicos — interações */
 (function () {
@@ -82,16 +93,29 @@ const { title, description, page } = Astro.props;
   // Página ativa no sidebar (via <body data-page="...">)
   var page = document.body.getAttribute("data-page") || "";
   document.querySelectorAll(".nav-link").forEach(function (a) {
-    if (a.getAttribute("data-nav") === page) a.classList.add("active");
+    if (a.getAttribute("data-nav") === page) {
+      a.classList.add("active");
+      a.setAttribute("aria-current", "page");
+    }
   });
 
   // Toggle sidebar mobile
   var toggle = document.querySelector(".menu-toggle");
   var sidebar = document.querySelector(".sidebar");
   if (toggle && sidebar) {
+    function setSidebarOpen(open) {
+      sidebar.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Fechar menu da documentação" : "Abrir menu da documentação");
+      var icon = toggle.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("fa-bars", !open);
+        icon.classList.toggle("fa-xmark", open);
+      }
+    }
     toggle.addEventListener("click", function (e) {
       e.stopPropagation();
-      sidebar.classList.toggle("open");
+      setSidebarOpen(!sidebar.classList.contains("open"));
     });
     document.addEventListener("click", function (e) {
       if (
@@ -99,7 +123,13 @@ const { title, description, page } = Astro.props;
         !sidebar.contains(e.target) &&
         !toggle.contains(e.target)
       ) {
-        sidebar.classList.remove("open");
+        setSidebarOpen(false);
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && sidebar.classList.contains("open")) {
+        setSidebarOpen(false);
+        toggle.focus();
       }
     });
   }
