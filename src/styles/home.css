@@ -38,6 +38,7 @@ button { font: inherit; }
 .site-nav.solid { background: rgba(9,10,16,.86); border-color: var(--line); backdrop-filter: blur(22px); }
 .nav-in { width: min(1240px, calc(100% - 48px)); height: 78px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .nav-brand { display: flex; align-items: center; gap: 12px; min-width: max-content; }
+.nav-org-signal { display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border: 1px solid rgba(177,137,255,.22); border-radius: 999px; color: #d9ccff; background: rgba(155,124,255,.055); font: 500 9px var(--fm); letter-spacing: .13em; white-space: nowrap; }.nav-org-signal i { font-style: normal; color: var(--purple); font-size: 12px; text-shadow: 0 0 10px var(--purple); }
 .nav-brand-mark { width: 37px; height: 37px; display: grid; place-items: center; border: 1px solid rgba(155,123,255,.55); border-radius: 11px; background: linear-gradient(145deg, rgba(155,123,255,.35), rgba(86,217,232,.12)); box-shadow: 0 0 28px rgba(155,123,255,.17); }
 .nav-brand-mark img { width: 30px; height: 30px; object-fit: contain; }
 .nav-brand strong, .nav-brand small { display: block; }
@@ -574,6 +575,7 @@ button { font: inherit; }
 .ecosystem-route a i { margin-left: 5px; color: var(--cyan); font-size: 9px; }
 .ecosystem-route a:hover { color: var(--cyan); }
 @media (max-width: 980px) { .nav-ecosystem-link { display: none; } }
+@media (max-width: 1080px) { .nav-org-signal { display: none; } }
 @media (max-width: 720px) { .ecosystem-route { align-items: flex-start; flex-direction: column; gap: 8px; }.ecosystem-route a { margin-left: 0; }.mobile-ecosystem-link { display: flex; } }
 /* WebGL fallback: browsers without a working context still get a living background. */
 body.platinum-fallback .platinum-webgl { display: none !important; }
