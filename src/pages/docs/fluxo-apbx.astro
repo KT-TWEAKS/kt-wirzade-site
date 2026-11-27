@@ -1,0 +1,68 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Fluxo APBX → KT WIRZADE · Documentação"
+  description="Entenda como descobrir, verificar, revisar e aplicar um playbook APBX pelo fluxo público KT TWEAKS."
+  page="fluxo"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Fluxo APBX</div>
+  <header class="page-header">
+    <h1>Do catálogo ao sistema</h1>
+    <p class="lead">O APBX é descoberto e verificado no catálogo público. O KT WIRZADE é onde você abre, revisa e aplica o arquivo no Windows.</p>
+  </header>
+
+  <div class="callout info"><i class="fas fa-route"></i><div><b>Uma fronteira clara.</b> O catálogo publica somente releases verificadas; o aplicativo executa localmente, depois que você confere o conteúdo e confirma a ação.</div></div>
+
+  <h2>Explore o fluxo</h2>
+  <div class="flow-tabs" role="tablist" aria-label="Fluxo público APBX para KT WIRZADE">
+    <button class="flow-tab active" type="button" role="tab" aria-selected="true" aria-controls="flow-doc-panel-0" data-flow-tab="0"><small>01</small><strong>Encontrar</strong></button>
+    <button class="flow-tab" type="button" role="tab" aria-selected="false" aria-controls="flow-doc-panel-1" data-flow-tab="1" tabindex="-1"><small>02</small><strong>Conferir</strong></button>
+    <button class="flow-tab" type="button" role="tab" aria-selected="false" aria-controls="flow-doc-panel-2" data-flow-tab="2" tabindex="-1"><small>03</small><strong>Revisar</strong></button>
+    <button class="flow-tab" type="button" role="tab" aria-selected="false" aria-controls="flow-doc-panel-3" data-flow-tab="3" tabindex="-1"><small>04</small><strong>Aplicar</strong></button>
+  </div>
+  <div class="flow-panel-shell" aria-live="polite">
+    <section id="flow-doc-panel-0" class="flow-panel" data-flow-panel="0" role="tabpanel">
+      <span class="panel-label">CATÁLOGO APBX</span>
+      <h3>Comece por uma fonte pública</h3>
+      <p>Pesquise por nome, autor ou código no catálogo KT APBX. Os itens exibidos como verificados possuem versão, análise, hash SHA-256 e um download publicado em uma release.</p>
+      <div class="flow-panel-actions"><a href="https://kt-tweaks-apbx.vercel.app" target="_blank" rel="noopener">Abrir catálogo APBX <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+    </section>
+    <section id="flow-doc-panel-1" class="flow-panel" data-flow-panel="1" role="tabpanel" hidden>
+      <span class="panel-label">ORIGEM E INTEGRIDADE</span>
+      <h3>Compare antes de baixar</h3>
+      <p>Abra os detalhes do item, confira autor, versão, risco, tamanho e SHA-256. O hash ajuda a detectar alteração no arquivo baixado; ele não substitui a leitura das ações nem transforma um playbook em algo automaticamente seguro.</p>
+      <div class="flow-panel-actions"><a href="/docs/seguranca">Ler segurança e verificação <i class="fas fa-arrow-right"></i></a></div>
+    </section>
+    <section id="flow-doc-panel-2" class="flow-panel" data-flow-panel="2" role="tabpanel" hidden>
+      <span class="panel-label">KT WIRZADE / REVISÃO</span>
+      <h3>Abra o arquivo antes de executar</h3>
+      <p>Baixe o APBX da release oficial e carregue-o no KT WIRZADE. Leia as opções, requisitos, downloads, serviços, registro e comandos apresentados pelo aplicativo antes de confirmar.</p>
+      <div class="flow-panel-actions"><a href="/docs/instalar-playbooks">Ver o passo a passo <i class="fas fa-arrow-right"></i></a><a href="https://kt-wirzade-site.vercel.app" target="_blank" rel="noopener">Conhecer o aplicativo <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+    </section>
+    <section id="flow-doc-panel-3" class="flow-panel" data-flow-panel="3" role="tabpanel" hidden>
+      <span class="panel-label">APLICAÇÃO E RECUPERAÇÃO</span>
+      <h3>Confirme com o caminho de volta visível</h3>
+      <p>Quando decidir continuar, acompanhe o log e os avisos do KT WIRZADE. O histórico e as sessões recuperáveis ficam próximos da operação para facilitar a análise posterior.</p>
+      <div class="flow-panel-actions"><a href="/docs/rollback">Entender rollback <i class="fas fa-arrow-right"></i></a><a href="/docs/faq">Abrir FAQ <i class="fas fa-arrow-right"></i></a></div>
+    </section>
+  </div>
+
+  <h2>O que cada site faz</h2>
+  <table class="doc-table">
+    <thead><tr><th>Parte</th><th>Responsabilidade pública</th></tr></thead>
+    <tbody>
+      <tr><td>KT APBX</td><td>Catálogo, busca, comparação, changelog, origem, hash e download da release.</td></tr>
+      <tr><td>KT WIRZADE</td><td>Leitura do playbook, validação local, confirmação, execução e histórico no Windows.</td></tr>
+      <tr><td>Painel de registro</td><td>Área operacional separada; não é linkada na navegação pública.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn"><i class="fas fa-triangle-exclamation"></i><div><b>Leia antes de aplicar.</b> Um hash confirma a integridade do arquivo baixado, mas não aprova a intenção das ações. Se algo parecer inesperado, pare e não confirme.</div></div>
+
+  <nav class="pager">
+    <a href="/docs"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">Visão geral</span></a>
+    <a class="next" href="/docs/instalar-playbooks"><span class="dir">Próximo</span><span class="name">Instalar playbooks <i class="fas fa-arrow-right"></i></span></a>
+  </nav>
+</DocsLayout>
