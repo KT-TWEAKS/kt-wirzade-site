@@ -1,0 +1,28 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+
+<DocsLayout
+  title="Termos e Limites · KT WIRZADE Docs"
+  description="Uso responsável, limites de rollback e avisos importantes do KT WIRZADE."
+  page="termos"
+>
+  <div class="crumbs"><a href="/">Site</a> / <a href="/docs">Docs</a> / Termos e limites</div>
+  <header class="page-header">
+    <p class="eyebrow"><i class="fas fa-scale-balanced"></i> USO RESPONSÁVEL / KT WIRZADE</p>
+    <h1>Termos e limites</h1>
+    <p class="lead">Leia estes pontos antes de aplicar um playbook. O WIRZADE ajuda a entender e registrar alterações, mas não transforma uma mudança de sistema em uma operação sem risco.</p>
+  </header>
+
+  <div class="callout warning"><i class="fas fa-triangle-exclamation"></i><div><b>Faça backup antes de começar.</b> Use uma máquina ou imagem recuperável, confira a origem do APBX e revise todas as ações exibidas pelo app.</div></div>
+
+  <h2>O que você está aceitando</h2>
+  <div class="terms-grid"><article><i class="fas fa-user-shield"></i><h3>Você decide</h3><p>A aplicação só deve acontecer depois da sua revisão e confirmação. Não execute um playbook que você não consegue explicar.</p></article><article><i class="fas fa-computer"></i><h3>Seu ambiente</h3><p>Compatibilidade depende da edição, build, drivers, políticas e aplicativos instalados no Windows.</p></article><article><i class="fas fa-file-circle-check"></i><h3>Origem verificável</h3><p>Prefira releases oficiais, compare hashes publicados e mantenha o arquivo APBX associado à sua fonte.</p></article><article><i class="fas fa-clock-rotate-left"></i><h3>Recuperação limitada</h3><p>Rollback cobre somente operações que possuem snapshot ou backup suportado. Ele não desfaz toda consequência externa.</p></article></div>
+
+  <h2>Limites conhecidos</h2>
+  <ul class="limits-list"><li><i class="fas fa-xmark"></i><span>Remoção de aplicativos e pacotes, comandos arbitrários e operações sem backup podem não ser reversíveis automaticamente.</span></li><li><i class="fas fa-xmark"></i><span>Um hash confirma integridade do arquivo, mas não substitui assinatura digital nem garante que um conteúdo de terceiros seja adequado ao seu computador.</span></li><li><i class="fas fa-xmark"></i><span>Alertas de antivírus devem ser investigados pela origem, código e hash; nunca ignore um alerta sem entender o que será executado.</span></li><li><i class="fas fa-xmark"></i><span>O KT WIRZADE é um projeto independente e não é afiliado à Microsoft.</span></li></ul>
+
+  <div class="callout info"><i class="fas fa-route"></i><div><b>Sequência recomendada.</b> Consulte o <a href="/docs/fluxo-apbx">fluxo APBX</a>, leia a página de <a href="/docs/seguranca">segurança</a> e mantenha a <a href="/docs/rollback">documentação de rollback</a> aberta durante o teste.</div></div>
+
+  <nav class="pager"><a href="/docs/faq"><span class="dir">Anterior</span><i class="fas fa-arrow-left"></i> <span class="name">FAQ &amp; suporte</span></a><a class="next" href="/docs"><span class="dir">Voltar</span><span class="name">Visão geral <i class="fas fa-arrow-right"></i></span></a></nav>
+</DocsLayout>
